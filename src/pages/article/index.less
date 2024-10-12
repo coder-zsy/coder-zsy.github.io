@@ -1,0 +1,64 @@
+.article-container {
+  margin-right: 200px;
+  //   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+  overflow: scroll;
+  padding: 0 20px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 180%;
+  blockquote {
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  strong {
+    padding: 0 3px;
+    color: #f77002;
+  }
+  .no-wrap {
+    margin: 10px 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 10px 0;
+  }
+  ul {
+    list-style: disc;
+    padding-left: 20px;
+  }
+  li {
+    list-style: disc;
+  }
+  ol {
+    padding-left: 20px;
+  }
+  ol li {
+    list-style: auto;
+  }
+}
+
+.article-menu {
+  position: fixed;
+  right: 20px;
+  top: 60px;
+  max-width: 200px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+  transform: translate(0, 0);
+  transition: transform 500ms ease;
+  overflow-y: scroll;
+  .title-anchor {
+    overflow: hidden; /* 溢出部分以省略号表示 */
+    text-overflow: ellipsis; /* 溢出部分以省略号表示 */
+    white-space: nowrap; /* 强制文本在同一行内显示 */
+    //   display: -webkit-box;
+    //   -webkit-line-clamp: 1; /* 显示的行数 */
+    //   -webkit-box-orient: vertical;
+  }
+}
