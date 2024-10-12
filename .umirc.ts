@@ -4,6 +4,7 @@ import { defineConfig } from "umi";
 const path = require("path");
 
 export default defineConfig({
+  outputPath: "docs", // 默认为 'dist'，您可以根据需要更改此路径。
   alias: {
     //   "@": process.cwd() + "/src", // 定义 @ 别名指向 src 目录
     "@": path.resolve(__dirname, "src"), // 定义 @ 别名指向 src 目录
