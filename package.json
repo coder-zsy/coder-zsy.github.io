@@ -1,6 +1,6 @@
 {
   "private": true,
-  "author": "张琦 <zqxin110@126.com>",
+  "author": "一氓 <coderzsy@gmail.com>",
   "scripts": {
     "dev": "umi dev",
     "build": "umi build",
