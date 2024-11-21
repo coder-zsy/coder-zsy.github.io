@@ -8,6 +8,11 @@ module.exports = [
         "key": "docs/business/profit_review.md",
         "label": "《盈利》作业",
         "type": "file"
+      },
+      {
+        "key": "docs/business/test.md",
+        "label": "测试文件",
+        "type": "file"
       }
     ]
   },
@@ -39,6 +44,18 @@ module.exports = [
         "label": "web",
         "type": "directory",
         "children": [
+          {
+            "key": "docs/develop/web/VUE",
+            "label": "VUE",
+            "type": "directory",
+            "children": [
+              {
+                "key": "docs/develop/web/VUE/::-v-deep.md",
+                "label": "特殊选择器::v-deep",
+                "type": "file"
+              }
+            ]
+          },
           {
             "key": "docs/develop/web/react_markdown.md",
             "label": "在react中解析markdown文件",

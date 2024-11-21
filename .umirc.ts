@@ -1,22 +1,48 @@
 import { defineConfig } from "umi";
-// import GetDirectoryContentPlugin from "./plugins/getDirectoryContent"; // 确保路径正确
+import ScriptWebpackPlugin from "./buildScript/scriptWebpackPlugin";
 
 const path = require("path");
 
 export default defineConfig({
-  outputPath: "docs", // 默认为 'dist'，您可以根据需要更改此路径。
+  /**
+   * github pages 里选不到dist目录，就把这里的输出目录改掉
+   * */
+  outputPath: "docs",
   alias: {
     //   "@": process.cwd() + "/src", // 定义 @ 别名指向 src 目录
     "@": path.resolve(__dirname, "src"), // 定义 @ 别名指向 src 目录
     "@public": path.resolve(__dirname, "public"), // 定义 @ 别名指向 src 目录
-    // "@public": "./public",
   },
   routes: [
-    { path: "/", component: "index" },
-    { path: "/docs", component: "docs" },
+    // 错误的路由
+    { path: "/*", component: "@/pages/index" },
+    // 没有layout（layout里是空的）包裹的路由
+    {
+      path: "/",
+      component: "@/layouts/index",
+      routes: [
+        { path: "/", component: "index" },
+        { path: "/docs", component: "@/pages/docs" },
+      ],
+    },
+    {
+      path: "/printerMate",
+      component: "@/layouts/index",
+      routes: [
+        {
+          path: "/printerMate",
+          component: "@/pages/printerMate/privacyAgreement",
+        },
+        {
+          path: "/printerMate/userAgreement",
+          component: "@/pages/printerMate/userAgreement",
+        },
+      ],
+    },
+    // layout包裹的带菜单的路由
     {
       path: "/article",
-      component: "@/pages/article",
+      component: "@/layouts/menuLayout",
       routes: [
         { path: "/article/index", redirect: "/article/index" },
         {
@@ -26,19 +52,21 @@ export default defineConfig({
       ],
     },
   ],
-  // copy: [{ from: "src/docs", to: "dist/docs" }],
+  /**
+   *
+   * umi框架下public目录中的资源会直接复制到构建输出目录，所以这里不用再复制资源文件了
+   */
+  // copy: [{ from: "src/xx", to: "dist/xxx" }],
   npmClient: "pnpm",
-  // import componentsList from '@/componentsList';
-  // console.log(componentsList); // 打印出所有组件文件的路径
-  // chainWebpack(memo, { env }) {
-  //   memo.resolve.alias.set("@", path.resolve(__dirname, "src"));
-
-  //   memo.plugin("get-directory-content").use(GetDirectoryContentPlugin, [
-  //     {
-  //       rootDir: process.cwd(),
-  //       directory: "src/components",
-  //       output: "dist/componentsList.js", // 输出结果到哪里
-  //     },
-  //   ]);
-  // },
+  chainWebpack: (memo) => {
+    memo.plugin("mdFloderGeneratorPlugin").use(ScriptWebpackPlugin, [
+      // { scriptPath: "./buildScript/generateDocsConfig.js" },
+      {
+        scriptPath: path.resolve(
+          __dirname,
+          "buildScript/generateDocsConfig.js"
+        ),
+      },
+    ]);
+  },
 });

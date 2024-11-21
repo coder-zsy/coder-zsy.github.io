@@ -29,8 +29,13 @@ export default function Article() {
   const location = useLocation();
   const params = useParams();
   useEffect(() => {
+    if (!location.state || !location.state.articlePath) {
+      setArticleContent('缺少文章id，无法打开文章详情');
+      return;
+    }
     getDocContent(location.state.articlePath);
     console.log("==========", location, params);
+
   }, [location]);
 
   const getDocContent = (articlePath: string) => {
