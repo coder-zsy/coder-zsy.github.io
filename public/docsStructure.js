@@ -28,6 +28,24 @@ module.exports = [
     "type": "directory",
     "children": [
       {
+        "key": "docs/develop/aliCloud",
+        "label": "aliCloud",
+        "type": "directory",
+        "children": []
+      },
+      {
+        "key": "docs/develop/engineeringEfficiency",
+        "label": "engineeringEfficiency",
+        "type": "directory",
+        "children": [
+          {
+            "key": "docs/develop/engineeringEfficiency/vim.md",
+            "label": "vim",
+            "type": "file"
+          }
+        ]
+      },
+      {
         "key": "docs/develop/linux",
         "label": "linux",
         "type": "directory",
