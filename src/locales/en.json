@@ -1,0 +1,29 @@
+{
+  "translation": {
+    "Faq": "FAQ",
+    "Faq_WhiteDotsA": "White dots in printed content background",
+    "Faq_WhiteDotsQ": "Reason: This occurs when printing in image mode. You can select text mode in the print preview page.\nPS: How to choose between text and image mode?\n1. Choose text mode for pure text content;\n2. Choose image mode for photos of people or landscapes.",
+    "Faq_NotClearA": "Solutions for unclear printing",
+    "Faq_NotClearQ": "1. Ensure the paper surface is flat when taking photos, adjust shooting distance to match normal writing size, keep lens parallel to paper surface, and focus properly for clearer printing.\n2. When battery is low, printing will be faint, please charge first (3-4 hours charging time);\n3. You can adjust print darkness and font thickness in the print preview page.",
+    "Faq_PrintHorizontallyA": "How to print horizontally",
+    "Faq_PrintHorizontallyQ": "1. In the print preview page, select print orientation at the bottom, choose between vertical and horizontal layout.",
+    "Faq_PaperCannotComeOutA": "Why doesn't paper come out when printing?",
+    "Faq_PaperCannotComeOutQ": "1. Paper might not be loaded properly or jammed, preventing it from coming out; try reloading the paper;\n2. When loading paper, make sure part of the paper is exposed outside the machine.",
+    "Faq_CheckPaperStuckA": "How to check if paper is loaded properly and not jammed?",
+    "Faq_CheckPaperStuckQ": "1. After loading paper, double-click the power button to print a test page. If the test page prints successfully, the paper is loaded correctly; otherwise, reload the paper.",
+    "Faq_ChargeTimeA": "How long does charging take?",
+    "Faq_ChargeTimeQ": "1. Charging typically takes 1-2 hours, depending on remaining battery level.\n(If battery is low during use, the APP will show a low battery warning)",
+    "Faq_ConnectStepsA": "APP printer connection steps",
+    "Faq_ConnectStepsQ": "1. Turn on the machine (press and hold power button to turn on/off)\n2. Turn on phone Bluetooth, proceed to next step if already on (no need to manually pair printer in phone Bluetooth settings)\n3. Open APP, click device connection page in top right corner, search for printer Bluetooth ID and click connect; for previously connected printers, APP will automatically connect when machine is on and phone Bluetooth is enabled (wait 3-5 seconds on home page for auto-connection)\nIf still unable to connect, try restarting phone and opening APP to connect again;",
+    "Faq_PrintBlackA": "Why is the printout blank with no text?",
+    "Faq_PrintBlackQ": "The paper is loaded upside down, please reload the paper with part of it extending outside the machine.",
+    "Faq_BleConnectFailureA": "Bluetooth connection failed",
+    "Faq_BleConnectFailureQ": "Possible reasons:\n1. Turn on phone Bluetooth, restart the printer;\n2. Reinstall APP, accept all permissions when first opened;\n3. Machine can only connect to one phone at a time, ensure it's not connected to another phone;\n4. Try with another phone;\n5. If APP can't connect to machine, double-click power button to print test page with QR code, scan with WeChat - if can't download APP, contact seller for support;\n6. If still not working after above steps, contact customer service.",
+    "Faq_NeedInkingA": "Does the machine need ink?",
+    "Faq_NeedInkingQ": "1. The machine uses latest thermal printing technology and doesn't need ink.",
+    "Faq_PrintItInColorA": "Can it print in color?",
+    "Faq_PrintItInColorQ": "1. The machine uses thermal printing technology and can only print in black and white.",
+    "Faq_PrintTextSmallA": "Printed text is too small to read",
+    "Faq_PrintTextSmallQ": "1. For text content, adjust font size in print preview page, e.g., for ancient poems feature;\n2. For images like photos or album pictures. If photo is a test paper or similar size with many words, use APP's large image split printing (or adjust image size in print preview). Because printer paper is small, printing a test paper on such small paper would be unreadable. We can't handwrite a test paper on such small paper either. So when printing images, the fewer words in the image, the larger the printed text will be."
+  }
+}

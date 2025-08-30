@@ -1,0 +1,29 @@
+{
+  "translation": {
+    "Faq": "FAQ",
+    "Faq_WhiteDotsA": "Points blancs dans l'arrière-plan du contenu imprimé",
+    "Faq_WhiteDotsQ": "Raison : Cela se produit lors de l'impression en mode image. Vous pouvez sélectionner le mode texte dans la page d'aperçu d'impression.\nPS : Comment choisir entre le mode texte et le mode image ?\n1. Choisissez le mode texte pour le contenu textuel pur ;\n2. Choisissez le mode image pour les photos de personnes ou de paysages.",
+    "Faq_NotClearA": "Solutions pour une impression peu claire",
+    "Faq_NotClearQ": "1. Assurez-vous que la surface du papier est plate lors de la prise de photos, ajustez la distance de prise de vue pour correspondre à la taille d'écriture normale, gardez l'objectif parallèle à la surface du papier et faites la mise au point correctement pour une impression plus claire.\n2. Lorsque la batterie est faible, l'impression sera pâle, veuillez d'abord charger (3-4 heures de temps de charge) ;\n3. Vous pouvez ajuster l'obscurité d'impression et l'épaisseur de la police dans la page d'aperçu d'impression.",
+    "Faq_PrintHorizontallyA": "Comment imprimer horizontalement",
+    "Faq_PrintHorizontallyQ": "1. Dans la page d'aperçu d'impression, sélectionnez l'orientation d'impression en bas, choisissez entre la disposition verticale et horizontale.",
+    "Faq_PaperCannotComeOutA": "Pourquoi le papier ne sort-il pas lors de l'impression ?",
+    "Faq_PaperCannotComeOutQ": "1. Le papier pourrait ne pas être correctement chargé ou coincé, l'empêchant de sortir ; essayez de recharger le papier ;\n2. Lors du chargement du papier, assurez-vous qu'une partie du papier est exposée à l'extérieur de la machine.",
+    "Faq_CheckPaperStuckA": "Comment vérifier si le papier est correctement chargé et non coincé ?",
+    "Faq_CheckPaperStuckQ": "1. Après avoir chargé le papier, double-cliquez sur le bouton d'alimentation pour imprimer une page de test. Si la page de test s'imprime avec succès, le papier est correctement chargé ; sinon, rechargez le papier.",
+    "Faq_ChargeTimeA": "Combien de temps faut-il pour charger ?",
+    "Faq_ChargeTimeQ": "1. La charge prend généralement 1-2 heures, selon le niveau de batterie restant.\n(Si la batterie est faible pendant l'utilisation, l'APP affichera un avertissement de batterie faible)",
+    "Faq_ConnectStepsA": "Étapes de connexion de l'imprimante APP",
+    "Faq_ConnectStepsQ": "1. Allumez la machine (maintenez le bouton d'alimentation enfoncé pour allumer/éteindre)\n2. Allumez le Bluetooth du téléphone, passez à l'étape suivante si déjà allumé (pas besoin d'apparier manuellement l'imprimante dans les paramètres Bluetooth du téléphone)\n3. Ouvrez l'APP, cliquez sur la page de connexion d'appareil dans le coin supérieur droit, recherchez l'ID Bluetooth de l'imprimante et cliquez sur connecter ; pour les imprimantes précédemment connectées, l'APP se connectera automatiquement lorsque la machine est allumée et le Bluetooth du téléphone est activé (attendez 3-5 secondes sur la page d'accueil pour la connexion automatique)\nSi la connexion est toujours impossible, essayez de redémarrer le téléphone et d'ouvrir l'APP pour vous connecter à nouveau ;",
+    "Faq_PrintBlackA": "Pourquoi l'impression est-elle vide sans texte ?",
+    "Faq_PrintBlackQ": "Le papier est chargé à l'envers, veuillez recharger le papier avec une partie s'étendant à l'extérieur de la machine.",
+    "Faq_BleConnectFailureA": "Échec de la connexion Bluetooth",
+    "Faq_BleConnectFailureQ": "Raisons possibles :\n1. Allumez le Bluetooth du téléphone, redémarrez l'imprimante ;\n2. Réinstallez l'APP, acceptez toutes les permissions lors de la première ouverture ;\n3. La machine ne peut se connecter qu'à un téléphone à la fois, assurez-vous qu'elle n'est pas connectée à un autre téléphone ;\n4. Essayez avec un autre téléphone ;\n5. Si l'APP ne peut pas se connecter à la machine, double-cliquez sur le bouton d'alimentation pour imprimer une page de test avec un code QR, scannez avec WeChat - si l'APP ne peut pas être téléchargée, contactez le vendeur pour le support ;\n6. Si cela ne fonctionne toujours pas après les étapes ci-dessus, contactez le service client.",
+    "Faq_NeedInkingA": "La machine a-t-elle besoin d'encre ?",
+    "Faq_NeedInkingQ": "1. La machine utilise la dernière technologie d'impression thermique et n'a pas besoin d'encre.",
+    "Faq_PrintItInColorA": "Peut-elle imprimer en couleur ?",
+    "Faq_PrintItInColorQ": "1. La machine utilise la technologie d'impression thermique et ne peut imprimer qu'en noir et blanc.",
+    "Faq_PrintTextSmallA": "Le texte imprimé est trop petit pour être lu",
+    "Faq_PrintTextSmallQ": "1. Pour le contenu textuel, ajustez la taille de la police dans la page d'aperçu d'impression, par exemple pour la fonction de poèmes anciens ;\n2. Pour les images comme les photos ou les images d'album. Si la photo est un papier de test ou une taille similaire avec beaucoup de mots, utilisez la division d'image grande de l'APP (ou ajustez la taille de l'image dans l'aperçu d'impression). Comme le papier de l'imprimante est petit, l'impression d'un papier de test sur un si petit papier serait illisible. Nous ne pouvons pas non plus écrire à la main un papier de test sur un si petit papier. Donc, lors de l'impression d'images, moins il y a de mots dans l'image, plus le texte imprimé sera grand."
+  }
+}

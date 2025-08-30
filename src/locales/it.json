@@ -1,0 +1,29 @@
+{
+  "translation": {
+    "Faq": "FAQ",
+    "Faq_WhiteDotsA": "Punti bianchi nello sfondo del contenuto stampato",
+    "Faq_WhiteDotsQ": "Motivo: Questo si verifica durante la stampa in modalità immagine. Puoi selezionare la modalità testo nella pagina di anteprima di stampa.\nPS: Come scegliere tra modalità testo e immagine?\n1. Scegli la modalità testo per contenuti testuali puri;\n2. Scegli la modalità immagine per foto di persone o paesaggi.",
+    "Faq_NotClearA": "Soluzioni per la stampa non chiara",
+    "Faq_NotClearQ": "1. Assicurati che la superficie della carta sia piatta durante la fotografia, regola la distanza di scatto per corrispondere alla dimensione normale della scrittura, mantieni l'obiettivo parallelo alla superficie della carta e metti a fuoco correttamente per una stampa più chiara.\n2. Quando la batteria è scarica, la stampa sarà sbiadita, carica prima (3-4 ore di tempo di ricarica);\n3. Puoi regolare l'oscurità di stampa e lo spessore del carattere nella pagina di anteprima di stampa.",
+    "Faq_PrintHorizontallyA": "Come stampare orizzontalmente",
+    "Faq_PrintHorizontallyQ": "1. Nella pagina di anteprima di stampa, seleziona l'orientamento di stampa in basso, scegli tra disposizione verticale e orizzontale.",
+    "Faq_PaperCannotComeOutA": "Perché la carta non esce durante la stampa?",
+    "Faq_PaperCannotComeOutQ": "1. La carta potrebbe non essere caricata correttamente o essere bloccata, impedendole di uscire; prova a ricaricare la carta;\n2. Durante il caricamento della carta, assicurati che una parte della carta sia esposta all'esterno della macchina.",
+    "Faq_CheckPaperStuckA": "Come verificare se la carta è caricata correttamente e non è bloccata?",
+    "Faq_CheckPaperStuckQ": "1. Dopo aver caricato la carta, fai doppio clic sul pulsante di accensione per stampare una pagina di test. Se la pagina di test viene stampata con successo, la carta è caricata correttamente; altrimenti, ricarica la carta.",
+    "Faq_ChargeTimeA": "Quanto tempo ci vuole per caricare?",
+    "Faq_ChargeTimeQ": "1. La ricarica richiede tipicamente 1-2 ore, a seconda del livello di batteria rimanente.\n(Se la batteria è bassa durante l'uso, l'APP mostrerà un avviso di batteria scarica)",
+    "Faq_ConnectStepsA": "Passaggi di connessione della stampante APP",
+    "Faq_ConnectStepsQ": "1. Accendi la macchina (tieni premuto il pulsante di accensione per accendere/spegnere)\n2. Accendi il Bluetooth del telefono, procedi al passaggio successivo se già attivato (non è necessario abbinare manualmente la stampante nelle impostazioni Bluetooth del telefono)\n3. Apri l'APP, fai clic sulla pagina di connessione del dispositivo nell'angolo in alto a destra, cerca l'ID Bluetooth della stampante e fai clic su connetti; per le stampanti precedentemente connesse, l'APP si connetterà automaticamente quando la macchina è accesa e il Bluetooth del telefono è attivato (attendi 3-5 secondi nella home page per la connessione automatica)\nSe la connessione è ancora impossibile, prova a riavviare il telefono e aprire l'APP per riconnettersi;",
+    "Faq_PrintBlackA": "Perché la stampa è vuota senza testo?",
+    "Faq_PrintBlackQ": "La carta è caricata al rovescio, ricarica la carta con una parte che si estende all'esterno della macchina.",
+    "Faq_BleConnectFailureA": "Connessione Bluetooth fallita",
+    "Faq_BleConnectFailureQ": "Possibili motivi:\n1. Accendi il Bluetooth del telefono, riavvia la stampante;\n2. Reinstalla l'APP, accetta tutti i permessi al primo avvio;\n3. La macchina può connettersi solo a un telefono alla volta, assicurati che non sia connessa a un altro telefono;\n4. Prova con un altro telefono;\n5. Se l'APP non può connettersi alla macchina, fai doppio clic sul pulsante di accensione per stampare una pagina di test con codice QR, scansiona con WeChat - se l'APP non può essere scaricata, contatta il venditore per supporto;\n6. Se ancora non funziona dopo i passaggi precedenti, contatta il servizio clienti.",
+    "Faq_NeedInkingA": "La macchina ha bisogno di inchiostro?",
+    "Faq_NeedInkingQ": "1. La macchina utilizza la più recente tecnologia di stampa termica e non necessita di inchiostro.",
+    "Faq_PrintItInColorA": "Può stampare a colori?",
+    "Faq_PrintItInColorQ": "1. La macchina utilizza la tecnologia di stampa termica e può stampare solo in bianco e nero.",
+    "Faq_PrintTextSmallA": "Il testo stampato è troppo piccolo per essere letto",
+    "Faq_PrintTextSmallQ": "1. Per i contenuti testuali, regola la dimensione del carattere nella pagina di anteprima di stampa, ad esempio per la funzione con poesie antiche;\n2. Per le immagini come foto o immagini dell'album. Se la foto è un foglio di test o una dimensione simile con molte parole, usa la divisione immagine grande dell'APP (o regola la dimensione dell'immagine nell'anteprima di stampa). Poiché la carta della stampante è piccola, stampare un foglio di test su una carta così piccola sarebbe illeggibile. Non possiamo nemmeno scrivere a mano un foglio di test su una carta così piccola. Quindi, quando stampi immagini, meno parole ci sono nell'immagine, più grande sarà il testo stampato."
+  }
+}
