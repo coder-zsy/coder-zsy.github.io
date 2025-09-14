@@ -11,56 +11,16 @@ type ItemData = {
 };
 
 const DATA: ItemData[] = [
-	{ title: "Faq_WhiteDotsA", content: "Faq_WhiteDotsQ", isOpen: false },
-	{ title: "Faq_NotClearA", content: "Faq_NotClearQ", isOpen: false },
+	{ title: "Faq_Problem1", content: "Faq_Answer1", isOpen: false },
+	{ title: "Faq_Problem2", content: "Faq_Answer2", isOpen: false },
 	{
-		title: "Faq_PrintHorizontallyA",
-		content: "Faq_PrintHorizontallyQ",
+		title: "Faq_Problem3",
+		content: "Faq_Answer3",
 		isOpen: false,
 	},
 	{
-		title: "Faq_PaperCannotComeOutA",
-		content: "Faq_PaperCannotComeOutQ",
-		isOpen: false,
-	},
-	{
-		title: "Faq_CheckPaperStuckA",
-		content: "Faq_CheckPaperStuckQ",
-		isOpen: false,
-	},
-	{
-		title: "Faq_ChargeTimeA",
-		content: "Faq_ChargeTimeQ",
-		isOpen: false,
-	},
-	{
-		title: "Faq_ConnectStepsA",
-		content: "Faq_ConnectStepsQ",
-		isOpen: false,
-	},
-	{
-		title: "Faq_PrintBlackA",
-		content: "Faq_PrintBlackQ",
-		isOpen: false,
-	},
-	{
-		title: "Faq_BleConnectFailureA",
-		content: "Faq_BleConnectFailureQ",
-		isOpen: false,
-	},
-	{
-		title: "Faq_NeedInkingA",
-		content: "Faq_NeedInkingQ",
-		isOpen: false,
-	},
-	{
-		title: "Faq_PrintItInColorA",
-		content: "Faq_PrintItInColorQ",
-		isOpen: false,
-	},
-	{
-		title: "Faq_PrintTextSmallA",
-		content: "Faq_PrintTextSmallQ",
+		title: "Faq_Problem4",
+		content: "Faq_Answer4",
 		isOpen: false,
 	},
 ];
@@ -80,7 +40,7 @@ const Item = ({ item, onClick }: ItemProps) => {
 			</div>
 			{item.isOpen && (<div style={styles.content}>
 
-					<span style={styles.text}>{t(item.content)}</span>
+					<div style={styles.text}>{t(item.content)}</div>
 
 			</div>)}
 
@@ -148,6 +108,9 @@ const styles = {
 	text: {
 		color: "#555",
 		fontSize: 14,
+		whiteSpace: 'pre-line',
+		width: '100%',
+		lineHeight: 1.4
 	},
 }
 

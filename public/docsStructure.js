@@ -28,12 +28,6 @@ module.exports = [
     "type": "directory",
     "children": [
       {
-        "key": "docs/develop/aliCloud",
-        "label": "aliCloud",
-        "type": "directory",
-        "children": []
-      },
-      {
         "key": "docs/develop/engineeringEfficiency",
         "label": "engineeringEfficiency",
         "type": "directory",
@@ -87,11 +81,5 @@ module.exports = [
         ]
       }
     ]
-  },
-  {
-    "key": "docs/management",
-    "label": "management",
-    "type": "directory",
-    "children": []
   }
 ];

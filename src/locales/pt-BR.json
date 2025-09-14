@@ -1,29 +1,13 @@
 {
   "translation": {
-    "Faq": "Perguntas frequentes",
-    "Faq_WhiteDotsA": "O conteúdo impresso tem pontos brancos no fundo",
-    "Faq_WhiteDotsQ": "Motivo: Isso ocorre porque o modo de impressão de imagem foi selecionado. Você pode selecionar o modo de texto na página de pré-visualização de impressão.\nPS: Como escolher entre modo texto e modo imagem?\n1. Para conteúdo puramente textual, escolha o modo texto;\n2. Para fotos de pessoas ou paisagens, escolha o modo imagem.",
-    "Faq_NotClearA": "Soluções para impressão pouco nítida",
-    "Faq_NotClearQ": "1. Certifique-se de que o papel está plano ao tirar a foto, ajuste a distância para que o tamanho do texto na foto seja semelhante ao tamanho normal de escrita, mantenha a lente paralela ao papel e foque corretamente para uma impressão mais nítida.\n2. Se a bateria estiver fraca, a impressão ficará clara, por favor, carregue totalmente antes de usar; (carregue por 3-4 horas)\n3. Na página de pré-visualização de impressão, é possível ajustar a intensidade da impressão e a espessura da fonte.",
-    "Faq_PrintHorizontallyA": "Como imprimir na horizontal",
-    "Faq_PrintHorizontallyQ": "1. Na página de pré-visualização de impressão, selecione a orientação de impressão na parte inferior, podendo escolher entre vertical e horizontal.",
-    "Faq_PaperCannotComeOutA": "Por que o papel não sai ao imprimir?",
-    "Faq_PaperCannotComeOutQ": "1. O papel pode não estar corretamente colocado ou estar preso, impedindo a saída; tente recolocar o papel;\n2. Ao colocar o papel, certifique-se de que uma parte dele fique para fora da máquina.",
-    "Faq_CheckPaperStuckA": "Como verificar se o papel está corretamente colocado e não está preso?",
-    "Faq_CheckPaperStuckQ": "1. Após colocar o papel, pressione duas vezes o botão liga/desliga para imprimir uma página de teste. Se a página de teste for impressa corretamente, o papel está bem colocado; caso contrário, recoloque o papel.",
-    "Faq_ChargeTimeA": "Quanto tempo leva para carregar?",
-    "Faq_ChargeTimeQ": "1. Normalmente leva de 1 a 2 horas para carregar, dependendo do nível de bateria restante. (Se a bateria estiver baixa durante o uso, o APP exibirá um aviso de bateria fraca)",
-    "Faq_ConnectStepsA": "Passos para conectar a impressora no APP",
-    "Faq_ConnectStepsQ": "1. Ligue a máquina (pressione e segure o botão liga/desliga para ligar/desligar)\n2. Ative o Bluetooth do telefone, prossiga para o próximo passo se já estiver ativado (não é necessário emparelhar manualmente a impressora nas configurações de Bluetooth do telefone)\n3. Abra o APP, clique no canto superior direito da página inicial para acessar a página de conexão do dispositivo, procure o número Bluetooth da impressora e clique em conectar; para impressoras já conectadas anteriormente, com a máquina ligada e o Bluetooth do telefone ativado, o APP conectará automaticamente à impressora (aguarde 3-5 segundos na página inicial para conexão automática). Se ainda não conseguir conectar, reinicie o telefone e tente novamente.",
-    "Faq_PrintBlackA": "Por que a impressão sai em branco, sem texto?",
-    "Faq_PrintBlackQ": "O papel está colocado ao contrário, por favor, recoloque o papel e deixe uma parte para fora da máquina.",
-    "Faq_BleConnectFailureA": "Falha na conexão Bluetooth",
-    "Faq_BleConnectFailureQ": "Possíveis motivos:\n1. Ative o Bluetooth do telefone, reinicie a impressora;\n2. Reinstale o APP e aceite todas as permissões ao abrir pela primeira vez;\n3. A máquina só pode se conectar a um telefone por vez, certifique-se de que não está conectada a outro telefone;\n4. Tente com outro telefone;\n5. Se o APP não conseguir conectar à máquina, pressione duas vezes o botão liga/desliga para imprimir uma página de teste com código QR, escaneie com o WeChat - se não conseguir baixar o APP, entre em contato com o vendedor para suporte;\n6. Se ainda não funcionar após as etapas acima, entre em contato com o suporte ao cliente.",
-    "Faq_NeedInkingA": "A máquina precisa de tinta?",
-    "Faq_NeedInkingQ": "1. A máquina utiliza tecnologia de impressão térmica e não precisa de tinta.",
-    "Faq_PrintItInColorA": "Pode imprimir em cores?",
-    "Faq_PrintItInColorQ": "1. A máquina utiliza tecnologia de impressão térmica e só pode imprimir em preto e branco.",
-    "Faq_PrintTextSmallA": "O texto impresso é muito pequeno para ler",
-    "Faq_PrintTextSmallQ": "1. Para conteúdo de texto, ajuste o tamanho da fonte na página de pré-visualização de impressão, por exemplo, para o recurso de poemas antigos;\n2. Para imagens como fotos ou fotos de álbuns. Se a foto for uma prova ou tamanho semelhante com muitas palavras, use a impressão dividida de imagem grande do APP (ou ajuste o tamanho da imagem na pré-visualização de impressão). Como o papel da impressora é pequeno, imprimir uma prova em papel tão pequeno seria ilegível. Também não podemos escrever uma prova à mão em papel tão pequeno. Portanto, ao imprimir imagens, quanto menos palavras na imagem, maior será o texto impresso."
+    "Faq": "Perguntas Frequentes",
+    "Faq_Problem1": "Como conectar a impressora?",
+    "Faq_Answer1": "1. Ligue a impressora (mantenha o botão de energia pressionado por 1,5 segundo), certificando-se de que ela está energizada.\n2. Ative o Bluetooth do seu telefone.\n3. Abra o aplicativo Printmate e toque no botão \"Conectar\" na página inicial.\n4. Após o dispositivo ser encontrado, toque no nome do dispositivo correspondente para conectá-lo. A mensagem \"Conexão bem-sucedida\" indica que o dispositivo está conectado.",
+    "Faq_Problem2": "Não consegue encontrar a impressora?",
+    "Faq_Answer2": "1. Confirme se a impressora está ligada e se o indicador de energia está aceso.\n2. Certifique-se de que a impressora não está conectada a outro telefone celular; o indicador de conexão deve estar piscando.\n3. Certifique-se de que o Bluetooth do seu telefone está ativado.\n4. Verifique se as permissões relevantes foram desativadas durante a instalação do aplicativo.\n5. Se tudo acima estiver normal, mas a impressora ainda não for encontrada, tente o seguinte: Reinicie a impressora, desligue e ligue o Bluetooth do telefone e reinicie o aplicativo antes de tentar novamente.",
+    "Faq_Problem3": "Por que a impressão está em branco?",
+    "Faq_Answer3": "O papel térmico pode ter sido instalado na direção errada. Consulte o manual do usuário do produto e reinstale o papel corretamente.",
+    "Faq_Problem4": "Impressora conectada com sucesso, por que não imprime?",
+    "Faq_Answer4": "1. A tampa do compartimento de papel pode não estar fechada corretamente.\n2. Verifique se o rolo de papel está acabado; se estiver, substitua-o por um novo.\n3. Verifique se há papel encravado; tente reinstalar o rolo de papel."
   }
 }

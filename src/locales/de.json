@@ -1,29 +1,13 @@
 {
   "translation": {
-    "Faq": "FAQ",
-    "Faq_WhiteDotsA": "Weiße Punkte im gedruckten Inhaltshintergrund",
-    "Faq_WhiteDotsQ": "Grund: Dies tritt auf, wenn im Bildmodus gedruckt wird. Sie können den Textmodus in der Druckvorschauseite auswählen.\nPS: Wie wählt man zwischen Text- und Bildmodus?\n1. Wählen Sie den Textmodus für reinen Textinhalt;\n2. Wählen Sie den Bildmodus für Fotos von Personen oder Landschaften.",
-    "Faq_NotClearA": "Lösungen für unklares Drucken",
-    "Faq_NotClearQ": "1. Stellen Sie sicher, dass die Papieroberfläche beim Fotografieren flach ist, passen Sie die Aufnahmeentfernung an die normale Schreibgröße an, halten Sie die Linse parallel zur Papieroberfläche und fokussieren Sie richtig für klareres Drucken.\n2. Bei niedrigem Batteriestand wird der Druck blass, bitte laden Sie zuerst (3-4 Stunden Ladezeit);\n3. Sie können die Druckdunkelheit und Schriftstärke in der Druckvorschauseite anpassen.",
-    "Faq_PrintHorizontallyA": "Wie druckt man horizontal",
-    "Faq_PrintHorizontallyQ": "1. Wählen Sie in der Druckvorschauseite die Druckausrichtung unten, wählen Sie zwischen vertikaler und horizontaler Anordnung.",
-    "Faq_PaperCannotComeOutA": "Warum kommt das Papier beim Drucken nicht heraus?",
-    "Faq_PaperCannotComeOutQ": "1. Das Papier könnte nicht richtig eingelegt oder verklemmt sein, wodurch es nicht herauskommt; versuchen Sie, das Papier neu einzulegen;\n2. Beim Einlegen des Papiers stellen Sie sicher, dass ein Teil des Papiers außerhalb der Maschine liegt.",
-    "Faq_CheckPaperStuckA": "Wie überprüft man, ob das Papier richtig eingelegt und nicht verklemmt ist?",
-    "Faq_CheckPaperStuckQ": "1. Nach dem Einlegen des Papiers doppelklicken Sie auf die Einschalttaste, um eine Testseite zu drucken. Wenn die Testseite erfolgreich gedruckt wird, ist das Papier richtig eingelegt; andernfalls legen Sie das Papier neu ein.",
-    "Faq_ChargeTimeA": "Wie lange dauert das Laden?",
-    "Faq_ChargeTimeQ": "1. Das Laden dauert typischerweise 1-2 Stunden, abhängig vom verbleibenden Batteriestand.\n(Wenn der Batteriestand während der Nutzung niedrig ist, zeigt die APP eine Niedrigbatterie-Warnung)",
-    "Faq_ConnectStepsA": "APP-Drucker-Verbindungsschritte",
-    "Faq_ConnectStepsQ": "1. Schalten Sie die Maschine ein (Einschalttaste gedrückt halten zum Ein-/Ausschalten)\n2. Schalten Sie das Telefon-Bluetooth ein, fahren Sie mit dem nächsten Schritt fort, wenn bereits eingeschaltet (keine manuelle Kopplung des Druckers in den Telefon-Bluetooth-Einstellungen erforderlich)\n3. Öffnen Sie die APP, klicken Sie auf die Geräteverbindungsseite in der oberen rechten Ecke, suchen Sie nach der Drucker-Bluetooth-ID und klicken Sie auf Verbinden; für zuvor verbundene Drucker verbindet sich die APP automatisch, wenn die Maschine eingeschaltet und das Telefon-Bluetooth aktiviert ist (3-5 Sekunden auf der Startseite für Auto-Verbindung warten)\nWenn immer noch keine Verbindung möglich ist, versuchen Sie, das Telefon neu zu starten und die APP zu öffnen, um erneut zu verbinden;",
-    "Faq_PrintBlackA": "Warum ist der Ausdruck leer ohne Text?",
-    "Faq_PrintBlackQ": "Das Papier ist verkehrt herum eingelegt, bitte legen Sie das Papier neu ein, wobei ein Teil außerhalb der Maschine liegt.",
-    "Faq_BleConnectFailureA": "Bluetooth-Verbindung fehlgeschlagen",
-    "Faq_BleConnectFailureQ": "Mögliche Gründe:\n1. Schalten Sie das Telefon-Bluetooth ein, starten Sie den Drucker neu;\n2. Installieren Sie die APP neu, akzeptieren Sie alle Berechtigungen beim ersten Öffnen;\n3. Die Maschine kann sich nur mit einem Telefon gleichzeitig verbinden, stellen Sie sicher, dass sie nicht mit einem anderen Telefon verbunden ist;\n4. Versuchen Sie es mit einem anderen Telefon;\n5. Wenn die APP keine Verbindung zur Maschine herstellen kann, doppelklicken Sie auf die Einschalttaste, um eine Testseite mit QR-Code zu drucken, scannen Sie mit WeChat - wenn die APP nicht heruntergeladen werden kann, kontaktieren Sie den Verkäufer für Support;\n6. Wenn es nach den obigen Schritten immer noch nicht funktioniert, kontaktieren Sie den Kundendienst.",
-    "Faq_NeedInkingA": "Benötigt die Maschine Tinte?",
-    "Faq_NeedInkingQ": "1. Die Maschine verwendet die neueste Thermodrucktechnologie und benötigt keine Tinte.",
-    "Faq_PrintItInColorA": "Kann sie in Farbe drucken?",
-    "Faq_PrintItInColorQ": "1. Die Maschine verwendet Thermodrucktechnologie und kann nur in Schwarz-Weiß drucken.",
-    "Faq_PrintTextSmallA": "Gedruckter Text ist zu klein zum Lesen",
-    "Faq_PrintTextSmallQ": "1. Für Textinhalt passen Sie die Schriftgröße in der Druckvorschauseite an, z.B. für die Funktion mit alten Gedichten;\n2. Für Bilder wie Fotos oder Albenbilder. Wenn das Foto ein Testpapier oder ähnliche Größe mit vielen Wörtern ist, verwenden Sie die große Bildaufteilung der APP (oder passen Sie die Bildgröße in der Druckvorschau an). Da das Druckerpapier klein ist, wäre das Drucken eines Testpapiers auf so kleinem Papier unlesbar. Wir können auch kein Testpapier auf so kleinem Papier handschriftlich erstellen. Wenn Sie also Bilder drucken, je weniger Wörter im Bild sind, desto größer wird der gedruckte Text sein."
+    "Faq": "Häufig gestellte Fragen",
+    "Faq_Problem1": "Wie schließe ich den Drucker an?",
+    "Faq_Answer1": "1. Schalten Sie den Drucker ein (Halten Sie die Ein-/Ausschalttaste 1,5 Sekunden lang gedrückt) und stellen Sie sicher, dass er mit Strom versorgt wird.\n2. Schalten Sie die Bluetooth-Funktion Ihres Telefons ein.\n3. Öffnen Sie die Printmate APP und tippen Sie auf der Startseite auf die Schaltfläche \"Verbinden\".\n4. Sobald das Gerät gefunden wurde, tippen Sie auf den entsprechenden Gerätenamen, um eine Verbindung herzustellen. Wenn \"Verbindung erfolgreich\" angezeigt wird, war die Verbindung erfolgreich.",
+    "Faq_Problem2": "Kann den Drucker nicht finden?",
+    "Faq_Answer2": "1. Stellen Sie sicher, dass der Drucker eingeschaltet ist und die Stromanzeige leuchtet.\n2. Stellen Sie sicher, dass der Drucker nicht mit einem anderen Telefon verbunden ist; die Verbindungsanzeige sollte blinken.\n3. Stellen Sie sicher, dass Bluetooth auf Ihrem Telefon aktiviert ist.\n4. Überprüfen Sie, ob bei der Installation der APP relevante Berechtigungen deaktiviert wurden.\n5. Wenn alles oben Genannte normal ist, der Drucker aber immer noch nicht gefunden werden kann, versuchen Sie Folgendes: Starten Sie den Drucker neu, schalten Sie das Bluetooth Ihres Telefons aus und wieder ein, und starten Sie die APP neu, bevor Sie es erneut versuchen.",
+    "Faq_Problem3": "Warum ist der Ausdruck leer?",
+    "Faq_Answer3": "Das Thermodruckpapier wurde möglicherweise in der falschen Richtung eingelegt. Bitte lesen Sie die Produktbedienungsanleitung und installieren Sie das Papier richtig neu.",
+    "Faq_Problem4": "Drucker verbunden, warum druckt er nicht?",
+    "Faq_Answer4": "1. Der Papierfachdeckel ist möglicherweise nicht richtig geschlossen.\n2. Prüfen Sie, ob die Papierrolle aufgebraucht ist; wenn ja, ersetzen Sie sie durch eine neue.\n3. Prüfen Sie auf Papierstau; versuchen Sie, die Papierrolle neu einzulegen."
   }
 }
