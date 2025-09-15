@@ -1,6 +1,7 @@
 {
   "translation": {
     "Faq": "Foire Aux Questions",
+    "InstructionManual": "Manuel d'instruction",
     "Faq_Problem1": "Comment connecter l'imprimante ?",
     "Faq_Answer1": "1. Allumez l'imprimante (maintenez le bouton d'alimentation enfoncé pendant 1,5 seconde) en vous assurant qu'elle est alimentée.\n2. Activez le Bluetooth de votre téléphone.\n3. Ouvrez l'application Printmate et appuyez sur le bouton de connexion sur la page d'accueil.\n4. Une fois l'appareil détecté, appuyez sur son nom pour vous connecter. Le message « Connexion réussie » indique que l'appareil est connecté.",
     "Faq_Problem2": "Impossible de trouver l'imprimante ?",
@@ -8,6 +9,9 @@
     "Faq_Problem3": "Pourquoi l'impression est-elle vide ?",
     "Faq_Answer3": "Le papier thermique a peut-être été installé dans le mauvais sens. Veuillez consulter le mode d'emploi du produit et réinstaller le papier correctement.",
     "Faq_Problem4": "L'imprimante est connectée, pourquoi ne imprime-t-elle pas ?",
-    "Faq_Answer4": "1. Le couvercle du bac à papier n'est peut-être pas fermé correctement.\n2. Vérifiez si le rouleau de papier est épuisé ; si c'est le cas, remplacez-le par un nouveau.\n3. Vérifiez s'il y a un bourrage papier ; essayez de réinstaller le rouleau de papier."
+    "Faq_Answer4": "1. Le couvercle du bac à papier n'est peut-être pas fermé correctement.\n2. Vérifiez si le rouleau de papier est épuisé ; si c'est le cas, remplacez-le par un nouveau.\n3. Vérifiez s'il y a un bourrage papier ; essayez de réinstaller le rouleau de papier.",
+    "DownloadInstall": "Télécharger et installer",
+    "AppTitle": "PrinterMate",
+    "OpenInBrowser": "Ouvrir dans le navigateur"
   }
 }

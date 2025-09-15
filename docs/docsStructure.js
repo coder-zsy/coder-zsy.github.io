@@ -1,5 +1,24 @@
 module.exports = [
   {
+    "key": "/articles/ai",
+    "label": "ai",
+    "type": "directory",
+    "children": [
+      {
+        "key": "/articles/ai/model",
+        "label": "model",
+        "type": "directory",
+        "children": []
+      },
+      {
+        "key": "/articles/ai/tools",
+        "label": "tools",
+        "type": "directory",
+        "children": []
+      }
+    ]
+  },
+  {
     "key": "/articles/business",
     "label": "business",
     "type": "directory",

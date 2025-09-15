@@ -1,6 +1,7 @@
 {
   "translation": {
     "Faq": "Frequently Asked Questions",
+    "InstructionManual": "Instruction Manual",
     "Faq_Problem1": "How to connect the printer?",
     "Faq_Answer1": "1. Turn on the printer (press and hold the power button for 1.5 seconds), ensuring it has power.\n2. Turn on your phone's Bluetooth.\n3. Open the Printmate APP and tap the connect button on the home page.\n4. After the device is found, tap on the corresponding device name to connect. A \"Connection Successful\" message indicates the device is connected.",
     "Faq_Problem2": "Can't find the printer?",
@@ -8,6 +9,9 @@
     "Faq_Problem3": "Why is the printout blank?",
     "Faq_Answer3": "The thermal paper might be installed in the wrong direction. Please refer to the product user manual and reinstall the paper correctly.",
     "Faq_Problem4": "Printer connected, why can't it print?",
-    "Faq_Answer4": "1. The paper compartment cover might not be closed properly.\n2. Check if the paper roll is used up; if so, replace it with a new one.\n3. Check for paper jams; try reinstalling the paper roll."
+    "Faq_Answer4": "1. The paper compartment cover might not be closed properly.\n2. Check if the paper roll is used up; if so, replace it with a new one.\n3. Check for paper jams; try reinstalling the paper roll.",
+    "DownloadInstall": "Download and install",
+    "AppTitle": "PrinterMate",
+    "OpenInBrowser": "Open in Browser"
   }
 }

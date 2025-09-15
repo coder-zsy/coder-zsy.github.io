@@ -1,6 +1,7 @@
 {
   "translation": {
     "Faq": "Häufig gestellte Fragen",
+    "InstructionManual": "Bedienungsanleitung",
     "Faq_Problem1": "Wie schließe ich den Drucker an?",
     "Faq_Answer1": "1. Schalten Sie den Drucker ein (Halten Sie die Ein-/Ausschalttaste 1,5 Sekunden lang gedrückt) und stellen Sie sicher, dass er mit Strom versorgt wird.\n2. Schalten Sie die Bluetooth-Funktion Ihres Telefons ein.\n3. Öffnen Sie die Printmate APP und tippen Sie auf der Startseite auf die Schaltfläche \"Verbinden\".\n4. Sobald das Gerät gefunden wurde, tippen Sie auf den entsprechenden Gerätenamen, um eine Verbindung herzustellen. Wenn \"Verbindung erfolgreich\" angezeigt wird, war die Verbindung erfolgreich.",
     "Faq_Problem2": "Kann den Drucker nicht finden?",
@@ -8,6 +9,9 @@
     "Faq_Problem3": "Warum ist der Ausdruck leer?",
     "Faq_Answer3": "Das Thermodruckpapier wurde möglicherweise in der falschen Richtung eingelegt. Bitte lesen Sie die Produktbedienungsanleitung und installieren Sie das Papier richtig neu.",
     "Faq_Problem4": "Drucker verbunden, warum druckt er nicht?",
-    "Faq_Answer4": "1. Der Papierfachdeckel ist möglicherweise nicht richtig geschlossen.\n2. Prüfen Sie, ob die Papierrolle aufgebraucht ist; wenn ja, ersetzen Sie sie durch eine neue.\n3. Prüfen Sie auf Papierstau; versuchen Sie, die Papierrolle neu einzulegen."
+    "Faq_Answer4": "1. Der Papierfachdeckel ist möglicherweise nicht richtig geschlossen.\n2. Prüfen Sie, ob die Papierrolle aufgebraucht ist; wenn ja, ersetzen Sie sie durch eine neue.\n3. Prüfen Sie auf Papierstau; versuchen Sie, die Papierrolle neu einzulegen.",
+    "DownloadInstall": "Herunterladen und installieren",
+    "AppTitle": "PrinterMate",
+    "OpenInBrowser": "Im Browser öffnen"
   }
 }
