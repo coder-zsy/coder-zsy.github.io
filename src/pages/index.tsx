@@ -1,40 +1,40 @@
-import React, { useEffect, useState } from "react";
-import "./index.less";
+import { useEffect, useState } from 'react';
+import './index.less';
 
-import AppLogo from "@/assets/index/appLogo.png";
-import Left from "@/assets/index/left.png";
-import Right from "@/assets/index/right.png";
-import OpenInBroswer from "@/assets/index/openInBroswer.png";
+import AppLogo from '@/assets/index/appLogo.png';
+import Left from '@/assets/index/left.png';
+import OpenInBroswer from '@/assets/index/openInBroswer.png';
+import Right from '@/assets/index/right.png';
 
 const App = () => {
   const [isWeChat, setIsWeChat] = useState(false);
-  const [appName, setAppName] = useState("TOYS");
-  const [downloadText, setDownloadText] = useState("下载安装");
+  const [appName, setAppName] = useState('TOYS');
+  const [downloadText, setDownloadText] = useState('下载安装');
 
   useEffect(() => {
     const ua = navigator.userAgent;
-    setIsWeChat(ua.indexOf("MicroMessenger") > -1);
-    console.log("==========", navigator);
+    setIsWeChat(ua.indexOf('MicroMessenger') > -1);
+    console.log('==========', navigator);
     const language = (
       navigator.browserLanguage || navigator.language
     ).toLowerCase();
-    if (language.indexOf("zh") > -1) {
+    if (language.indexOf('zh') > -1) {
       // zh-cn
-    } else if (language.indexOf("en") > -1) {
+    } else if (language.indexOf('en') > -1) {
       // 英文
-      setAppName("TOYS");
-      setDownloadText("Download and install");
+      setAppName('TOYS');
+      setDownloadText('Download and install');
     } else {
     }
   }, []);
 
   const downLoad = () => {
     const ua = navigator.userAgent;
-    if (ua.indexOf("Android") > -1 || ua.indexOf("Adr") > -1) {
-      window.location.href = "@/assets/app/Toys1.1.0.apk";
+    if (ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1) {
+      window.location.href = '@/assets/app/Toys1.1.0.apk';
     } else if (!!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
       // iOS 设备，通过AppStore下载
-      window.location.href = "https://apps.apple.com/app/id1096966252";
+      window.location.href = 'https://apps.apple.com/app/id1096966252';
     } else {
       // 其他平台的下载逻辑可以在这里添加
     }

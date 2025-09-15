@@ -37,10 +37,11 @@ export default function Article() {
     console.log("==========", location, params);
 
   }, [location]);
-
   const getDocContent = (articlePath: string) => {
     fetch(articlePath)
-      .then((resp) => resp.text())
+      .then((resp) => {
+        return resp.text();
+      })
       .then((txt) => {
         setArticleContent(txt);
       });

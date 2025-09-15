@@ -22,9 +22,9 @@ function traverseDirectory(dir, baseDir) {
   items.forEach((item) => {
     const itemPath = path.join(dir, item);
     /**
-     * itemPath已经是绝对路径，截取docs后的路径即可
+     * itemPath已经是绝对路径，截取articles后的路径即可
      */
-    const formattedPath = itemPath.replace(/^.*?\/docs\//, "docs/");
+    const formattedPath = itemPath.replace(/^.*?\/articles\//, "/articles/");
     const stats = fs.statSync(itemPath);
     if (stats.isDirectory()) {
       // 如果是子目录，递归调用
@@ -56,7 +56,7 @@ function traverseDirectory(dir, baseDir) {
 }
 
 // 指定要遍历的目录
-const baseDirectory = path.join(__dirname, "../public", "docs");
+const baseDirectory = path.join(__dirname, "../public", "articles");
 
 // 执行遍历并获取结果
 const docsStructure = traverseDirectory(baseDirectory, baseDirectory);

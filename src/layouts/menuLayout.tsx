@@ -23,16 +23,15 @@ const App: React.FC = () => {
     // history.push("/article", { articlePath: e.key });
     history.push(
       {
-        pathname: "/article",
+        pathname: "/article/index",
         search: "?articlePath=" + e.key,
-        hash: "#test",
+        // hash: "#test",
       },
       { articlePath: e.key }
     );
   };
 
   const topMenuClick: MenuProps["onClick"] = (e) => {
-    console.log("topMenuClick ", e);
     const currentItems = docs.find((item) => item.key == e.key);
     setSideMenus(currentItems.children || []);
   };

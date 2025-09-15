@@ -1,95 +1,102 @@
 module.exports = [
   {
-    "key": "docs/business",
+    "key": "/articles/business",
     "label": "business",
     "type": "directory",
     "children": [
       {
-        "key": "docs/business/profit_review.md",
+        "key": "/articles/business/profit_review.md",
         "label": "《盈利》作业",
         "type": "file"
       },
       {
-        "key": "docs/business/test.md",
+        "key": "/articles/business/test.md",
         "label": "测试文件",
         "type": "file"
       }
     ]
   },
   {
-    "key": "docs/cognition",
+    "key": "/articles/cognition",
     "label": "cognition",
     "type": "directory",
     "children": []
   },
   {
-    "key": "docs/develop",
+    "key": "/articles/develop",
     "label": "develop",
     "type": "directory",
     "children": [
       {
-        "key": "docs/develop/aliCloud",
+        "key": "/articles/develop/aliCloud",
         "label": "aliCloud",
         "type": "directory",
         "children": []
       },
       {
-        "key": "docs/develop/engineeringEfficiency",
+        "key": "/articles/develop/engineeringEfficiency",
         "label": "engineeringEfficiency",
         "type": "directory",
         "children": [
           {
-            "key": "docs/develop/engineeringEfficiency/vim.md",
+            "key": "/articles/develop/engineeringEfficiency/vim.md",
             "label": "vim",
             "type": "file"
           }
         ]
       },
       {
-        "key": "docs/develop/linux",
+        "key": "/articles/develop/linux",
         "label": "linux",
         "type": "directory",
         "children": [
           {
-            "key": "docs/develop/linux/nginx.md",
+            "key": "/articles/develop/linux/nginx.md",
             "label": "Nginx",
             "type": "file"
           },
           {
-            "key": "docs/develop/linux/tree.md",
+            "key": "/articles/develop/linux/tree.md",
             "label": "显示目录结构",
             "type": "file"
           }
         ]
       },
       {
-        "key": "docs/develop/web",
+        "key": "/articles/develop/web",
         "label": "web",
         "type": "directory",
         "children": [
           {
-            "key": "docs/develop/web/VUE",
-            "label": "VUE",
+            "key": "/articles/develop/web/React",
+            "label": "React",
             "type": "directory",
             "children": [
               {
-                "key": "docs/develop/web/VUE/::-v-deep.md",
-                "label": "特殊选择器::v-deep",
+                "key": "/articles/develop/web/React/react_markdown.md",
+                "label": "在react中解析markdown文件",
                 "type": "file"
               }
             ]
           },
           {
-            "key": "docs/develop/web/react_markdown.md",
-            "label": "在react中解析markdown文件",
-            "type": "file"
+            "key": "/articles/develop/web/VUE",
+            "label": "VUE",
+            "type": "directory",
+            "children": [
+              {
+                "key": "/articles/develop/web/VUE/::-v-deep.md",
+                "label": "特殊选择器::v-deep",
+                "type": "file"
+              }
+            ]
           }
         ]
       }
     ]
   },
   {
-    "key": "docs/management",
+    "key": "/articles/management",
     "label": "management",
     "type": "directory",
     "children": []

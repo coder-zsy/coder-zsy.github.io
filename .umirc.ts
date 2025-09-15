@@ -44,14 +44,25 @@ export default defineConfig({
       path: '/article',
       component: '@/layouts/menuLayout',
       routes: [
-        { path: '/article/index', redirect: '/article/index' },
+        {
+          path: '/article/index',
+          component: '@/pages/article/index',
+          // redirect: '/article/index',
+          title: '文章详情',
+        },
         {
           path: '/article/articleDetail',
           component: '@/pages/article/articleDetail',
+          title: '文章详情测试',
         },
       ],
     },
   ],
+  // umi多语言配置参考：https://umijs.org/docs/max/i18n
+  // locale: {
+  //   default: 'en-US',
+  //   baseSeparator: '-',
+  // },
   /**
    *
    * umi框架下public目录中的资源会直接复制到构建输出目录，所以这里不用再复制资源文件了

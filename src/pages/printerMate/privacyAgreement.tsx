@@ -1,8 +1,16 @@
-import React from "react";
-import "./index.less";
+import { useEffect } from 'react';
+// import { getAllLocales, SelectLang, setLocale } from 'umi';
+import './index.less';
 const PrivacyPolicy = () => {
+  useEffect(() => {
+    // const allLocales = getAllLocales();
+  }, []);
+
+  // 切换时不刷新页面
+  // setLocale('en-US', false);
   return (
     <div className="privacy-agreement-page">
+      {/* <SelectLang /> */}
       <h1>PrinterMate隐私协议</h1>
       <p>App名称：PrinterMate</p>
       <p>开发者名称：深圳奥思辉电子科技有限公司</p>
@@ -103,7 +111,7 @@ const PrivacyPolicy = () => {
       <p>
         4.征得授权同意的例外
         <br />
-        以下情形中，个人信息控制者收集、使用个人信息不必征得个人信息主体的授权同意∶{" "}
+        以下情形中，个人信息控制者收集、使用个人信息不必征得个人信息主体的授权同意∶{' '}
         <br />
         a）与个人信息控制者履行法律法规规定的义务相关的；
         <br />
@@ -343,7 +351,7 @@ const PrivacyPolicy = () => {
         1.我们的服务模式发生重大变化。如处理个人信息的目的、处理的个人信息类型、个人信息的使用方式等；
       </p>
       <p>
-        {" "}
+        {' '}
         2.我们在所有权结构、组织架构等方面发生重大变化。如业务调整、破产并购等引起的所有者变更等
       </p>
       <p>3.个人信息共享、转让或公开披露的主要对象发生变化；</p>
