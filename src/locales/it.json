@@ -1,0 +1,13 @@
+{
+  "translation": {
+    "Faq": "Domande Frequenti",
+    "Faq_Problem1": "Come collegare la stampante?",
+    "Faq_Answer1": "1. Accendi la stampante (tieni premuto il pulsante di accensione per 1,5 secondi), assicurandoti che sia alimentata.\n2. Attiva il Bluetooth del tuo telefono.\n3. Apri l'app Printmate e premi il pulsante di connessione nella homepage.\n4. Una volta trovato il dispositivo, tocca il nome corrispondente per connetterti. Il messaggio \"Connessione riuscita\" indica che il dispositivo è connesso.",
+    "Faq_Problem2": "Non riesci a trovare la stampante?",
+    "Faq_Answer2": "1. Conferma che la stampante sia accesa e che la sua spia di alimentazione sia illuminata.\n2. Assicurati che la stampante non sia connessa a un altro telefono; la spia di connessione dovrebbe lampeggiare.\n3. Assicurati che il Bluetooth del tuo telefono sia abilitato.\n4. Controlla se le autorizzazioni pertinenti sono state disabilitate durante l'installatione dell'APP.\n5. Se tutto quanto sopra è normale ma la stampante non viene ancora trovata, prova quanto segue: Riavvia la stampante, disattiva e riattiva il Bluetooth del telefono e riavvia l'APP prima di riprovare.",
+    "Faq_Problem3": "Perché la stampa è vuota?",
+    "Faq_Answer3": "La carta termica potrebbe essere stata installata nella direzione sbagliata. Consultare il manuale d'uso del prodotto e reinstallare la carta correttamente.",
+    "Faq_Problem4": "Stampante connessa, perché non stampa?",
+    "Faq_Answer4": "1. Il coperchio della cassetta della carta potrebbe non essere chiuso correttamente.\n2. Controlla se il rotolo di carta è esaurito; in tal caso, sostituiscilo con uno nuovo.\n3. Controlla se la carta è inceppata; prova a reinstallare il rotolo di carta."
+  }
+}

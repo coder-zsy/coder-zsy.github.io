@@ -1,0 +1,13 @@
+{
+  "translation": {
+    "Faq": "Perguntas Frequentes",
+    "Faq_Problem1": "Como conectar a impressora?",
+    "Faq_Answer1": "1. Ligue a impressora (mantenha o botão de energia pressionado por 1,5 segundo), certificando-se de que ela está energizada.\n2. Ative o Bluetooth do seu telefone.\n3. Abra o aplicativo Printmate e toque no botão \"Conectar\" na página inicial.\n4. Após o dispositivo ser encontrado, toque no nome do dispositivo correspondente para conectá-lo. A mensagem \"Conexão bem-sucedida\" indica que o dispositivo está conectado.",
+    "Faq_Problem2": "Não consegue encontrar a impressora?",
+    "Faq_Answer2": "1. Confirme se a impressora está ligada e se o indicador de energia está aceso.\n2. Certifique-se de que a impressora não está conectada a outro telefone celular; o indicador de conexão deve estar piscando.\n3. Certifique-se de que o Bluetooth do seu telefone está ativado.\n4. Verifique se as permissões relevantes foram desativadas durante a instalação do aplicativo.\n5. Se tudo acima estiver normal, mas a impressora ainda não for encontrada, tente o seguinte: Reinicie a impressora, desligue e ligue o Bluetooth do telefone e reinicie o aplicativo antes de tentar novamente.",
+    "Faq_Problem3": "Por que a impressão está em branco?",
+    "Faq_Answer3": "O papel térmico pode ter sido instalado na direção errada. Consulte o manual do usuário do produto e reinstale o papel corretamente.",
+    "Faq_Problem4": "Impressora conectada com sucesso, por que não imprime?",
+    "Faq_Answer4": "1. A tampa do compartimento de papel pode não estar fechada corretamente.\n2. Verifique se o rolo de papel está acabado; se estiver, substitua-o por um novo.\n3. Verifique se há papel encravado; tente reinstalar o rolo de papel."
+  }
+}
