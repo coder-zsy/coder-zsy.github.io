@@ -7,3 +7,8 @@
 /src/.umi-test
 # /dist
 .swc
+docs/.htaccess
+docs/.user.ini
+docs/.well-known/
+docs/404.html
+docs/docs/
