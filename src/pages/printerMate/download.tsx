@@ -1,6 +1,6 @@
 import '@/locales/i18n';
 import { useEffect, useState } from 'react';
-import './index.less';
+import '../index.less';
 
 import Left from '@/assets/index/left.png';
 import OpenInBroswer from '@/assets/index/openInBroswer.png';
