@@ -45,6 +45,10 @@ export default defineConfig({
           path: '/printerMate/instructionManual',
           component: '@/pages/printerMate/instructionManual',
         },
+        {
+          path: '/printerMate/download',
+          component: '@/pages/printerMate/download',
+        },
       ],
     },
     // layout包裹的带菜单的路由
