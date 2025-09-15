@@ -13,6 +13,9 @@ export default defineConfig({
     '@': path.resolve(__dirname, 'src'), // 定义 @ 别名指向 src 目录
     '@public': path.resolve(__dirname, 'public'), // 定义 @ 别名指向 src 目录
   },
+  history: {
+    type: 'hash', // 使用 hash 路由
+  },
   routes: [
     // 错误的路由
     { path: '/*', component: '@/pages/index' },
