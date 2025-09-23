@@ -47,9 +47,30 @@ const App = () => {
       <div className="content">
         <img className="app-logo" src={AppLogo} />
         <p className="baile-title">{appName}</p>
+        <div className="app-description">
+          <p className="description-text">
+            这是一个个人开发的移动应用程序，用于提供便捷的工具和服务。
+          </p>
+          <p className="description-text">
+            本应用为个人作品，仅供学习和交流使用。
+          </p>
+        </div>
         <button onClick={downLoad} className="download">
           {downloadText}
         </button>
+      </div>
+      <div className="bottom">
+        <div className="footer-info">
+          <a
+            className="icp-record"
+            href="https://beian.miit.gov.cn/#/Integrated/index"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            豫ICP备2021019481号
+          </a>
+          <p className="copyright">© 2025 个人开发者. All rights reserved.</p>
+        </div>
       </div>
       {isWeChat && (
         <div className="open-safari">
