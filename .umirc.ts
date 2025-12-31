@@ -26,6 +26,11 @@ export default defineConfig({
       routes: [
         { path: '/', component: 'index' },
         { path: '/docs', component: '@/pages/docs' },
+        {
+          path: '/imageAnalyzer',
+          component: '@/pages/imageAnalyzer/index',
+          title: '图片元数据分析',
+        },
       ],
     },
     {
