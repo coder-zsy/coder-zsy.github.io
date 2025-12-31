@@ -119,5 +119,29 @@ module.exports = [
     "label": "management",
     "type": "directory",
     "children": []
+  },
+  {
+    "key": "/articles/security_compliance",
+    "label": "security_compliance",
+    "type": "directory",
+    "children": [
+      {
+        "key": "/articles/security_compliance/monthly_report",
+        "label": "monthly_report",
+        "type": "directory",
+        "children": [
+          {
+            "key": "/articles/security_compliance/monthly_report/202510.md",
+            "label": "2025年10月产品安全合规月报",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "key": "/articles/security_compliance/policies_and_regulations.md",
+        "label": "政策法规来源",
+        "type": "file"
+      }
+    ]
   }
 ];
