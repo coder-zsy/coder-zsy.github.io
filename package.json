@@ -2,9 +2,10 @@
   "private": true,
   "author": "一氓 <coderzsy@gmail.com>",
   "scripts": {
-    "dev": "umi dev",
     "build": "umi build",
+    "dev": "umi dev",
     "postinstall": "umi setup",
+    "preview": "serve docs -s",
     "setup": "umi setup",
     "start": "npm run dev"
   },
@@ -27,6 +28,7 @@
     "prettier": "^2.8.8",
     "prettier-plugin-organize-imports": "^3.2.2",
     "prettier-plugin-packagejson": "^2.4.3",
+    "serve": "^14.2.5",
     "typescript": "^5.0.3"
   }
 }
