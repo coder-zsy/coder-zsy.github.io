@@ -10,7 +10,7 @@ import Right from '@/assets/index/right.png';
 
 const App = () => {
   const [isWeChat, setIsWeChat] = useState(false);
-  const [appName, setAppName] = useState('TOYS');
+  const [appName, setAppName] = useState('PrinterMate');
   const [downloadText, setDownloadText] = useState('下载安装');
 
   useEffect(() => {
