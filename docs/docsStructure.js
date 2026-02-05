@@ -11,6 +11,18 @@ module.exports = [
         "children": []
       },
       {
+        "key": "/articles/ai/prompt",
+        "label": "prompt",
+        "type": "directory",
+        "children": [
+          {
+            "key": "/articles/ai/prompt/readBook.md",
+            "label": "你现在是一位精通结构化思维的知识内化专家。我将提供某本书的电子目录，请你结合目录结构，对全书内容做一次深度、系统化的拆解与分析。",
+            "type": "file"
+          }
+        ]
+      },
+      {
         "key": "/articles/ai/tools",
         "label": "tools",
         "type": "directory",
@@ -109,6 +121,25 @@ module.exports = [
                 "type": "file"
               }
             ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "/articles/learn",
+    "label": "learn",
+    "type": "directory",
+    "children": [
+      {
+        "key": "/articles/learn/readBook",
+        "label": "readBook",
+        "type": "directory",
+        "children": [
+          {
+            "key": "/articles/learn/readBook/thinkingFastAndSlow.md",
+            "label": "《思考，快与慢》读书分析",
+            "type": "file"
           }
         ]
       }
