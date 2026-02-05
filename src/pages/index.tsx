@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import './index.less';
 
-import AppLogo from '@/assets/index/appLogo.png';
+// import AppLogo from '@/assets/index/appLogo.png';
+import AppLogo from '@/assets/index/printerMateLogo.png';
+
 import Left from '@/assets/index/left.png';
 import OpenInBroswer from '@/assets/index/openInBroswer.png';
 import Right from '@/assets/index/right.png';
@@ -31,12 +33,16 @@ const App = () => {
   const downLoad = () => {
     const ua = navigator.userAgent;
     if (ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1) {
-      window.location.href = '@/assets/app/Toys1.1.0.apk';
+      window.location.href =
+        'https://play.google.com/store/apps/details?id=com.anonymous.bluetoothprinter';
     } else if (!!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
       // iOS 设备，通过AppStore下载
-      window.location.href = 'https://apps.apple.com/app/id1096966252';
+      window.location.href =
+        'https://apps.apple.com/us/app/printermate/id6738001101';
     } else {
       // 其他平台的下载逻辑可以在这里添加
+      window.location.href =
+        'https://play.google.com/store/apps/details?id=com.anonymous.bluetoothprinter';
     }
   };
 

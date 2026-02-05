@@ -21,7 +21,8 @@ const App = () => {
   const downLoad = () => {
     const ua = navigator.userAgent;
     if (ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1) {
-      window.location.href = '@/assets/app/Toys1.1.0.apk';
+      window.location.href =
+        'https://play.google.com/store/apps/details?id=com.anonymous.bluetoothprinter';
     } else if (!!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
       // iOS 设备，通过AppStore下载
       window.location.href =
