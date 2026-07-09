@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>《思考，快与慢》分享 · 幻灯片</title>
+
+    <!-- Distinctive sans-serif pair from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ===========================================
+       主题与尺寸变量（黑色系）
+       =========================================== */
+      :root {
+        /* Colors - 深色、偏黑系，无青绿色 */
+        --bg-primary: #020617;
+        --bg-secondary: #020617;
+        --bg-elevated: rgba(15, 23, 42, 0.96);
+        --accent: #e5e7eb;
+        --accent-soft: rgba(148, 163, 184, 0.35);
+        --accent-strong: rgba(249, 250, 251, 0.9);
+        --text-primary: #f9fafb;
+        --text-secondary: #9ca3af;
+        --text-muted: #6b7280;
+        --danger: #fb7185;
+        --warning: #fbbf24;
+
+        /* Typography (responsive with clamp) */
+        --font-display: 'Space Grotesk', system-ui, -apple-system,
+          BlinkMacSystemFont, sans-serif;
+        --font-body: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont,
+          sans-serif;
+
+        --title-xl: clamp(2.2rem, 5vw, 3.8rem);
+        --title-lg: clamp(1.6rem, 3.4vw, 2.6rem);
+        --title-md: clamp(1.2rem, 2.4vw, 1.8rem);
+        --body-lg: clamp(0.95rem, 1.6vw, 1.1rem);
+        --body-md: clamp(0.85rem, 1.4vw, 1rem);
+        --body-sm: clamp(0.75rem, 1.2vw, 0.9rem);
+
+        /* Spacing */
+        --slide-padding: clamp(1.4rem, 4vw, 4rem);
+        --content-gap: clamp(0.9rem, 2.4vw, 2rem);
+        --stack-gap: clamp(0.5rem, 1.6vw, 1.4rem);
+
+        /* Layout */
+        --card-radius: 18px;
+        --dot-size: 10px;
+
+        /* Animation */
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        --duration-normal: 0.6s;
+      }
+
+      /* ===========================================
+       全局与视口适配（必须）
+       =========================================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        overflow-x: hidden;
+      }
+
+      html {
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+        background: radial-gradient(
+          circle at 10% 0%,
+          #020617 0,
+          #020617 40%,
+          #000 100%
+        );
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--text-primary);
+      }
+
+      /* ===========================================
+       幻灯片基础：每页=一个视口
+       =========================================== */
+      .slide {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        scroll-snap-align: start;
+        position: relative;
+        overflow: hidden;
+        padding: var(--slide-padding);
+        padding-top: clamp(1rem, 3vh, 1.8rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* 卡片整体在视口垂直居中 */
+        isolation: isolate;
+      }
+
+      .slide-inner {
+        width: min(1120px, 90vw); /* 统一每页卡片宽度 */
+        /* 固定每页卡片高度，在视口内统一：不超过 80vh，也不超过去掉外边距后的可用高度 */
+        height: min(80vh, calc(100% - 2 * var(--slide-padding)));
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--content-gap);
+        padding: clamp(0.8rem, 2vh, 1.4rem) clamp(1.4rem, 3vw, 2.2rem);
+        box-sizing: border-box;
+        border-radius: max(22px, 2.4vw);
+        border: 1px solid rgba(148, 163, 184, 0.26);
+        background: radial-gradient(
+          circle at 0 0,
+          rgba(148, 163, 184, 0.06),
+          transparent 55%
+        );
+      }
+
+      .slide-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        font-size: var(--body-sm);
+        color: var(--text-muted);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.25rem 0.8rem;
+        border-radius: 999px;
+        background: radial-gradient(
+          circle at 0 0,
+          rgba(60, 242, 197, 0.28),
+          transparent 55%
+        );
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        backdrop-filter: blur(14px);
+      }
+
+      .section-label-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 14px var(--accent-soft);
+      }
+
+      .slide-index {
+        opacity: 0.7;
+      }
+
+      .slide-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* 在卡片内部垂直居中内容 */
+        align-items: center; /* 水平方向居中内容块 */
+        gap: var(--content-gap);
+        max-height: 100%;
+        overflow: hidden;
+      }
+
+      /* slide-content 的直接子块统一居中展示，内部文本可自行左/中对齐 */
+      .slide-content > * {
+        width: 100%;
+        max-width: 52rem;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-display);
+        letter-spacing: 0.02em;
+        text-align: center; /* 统一标题居中，保证各页视觉中心一致 */
+      }
+
+      h1 {
+        font-size: var(--title-xl);
+        line-height: 1.04;
+      }
+
+      h2 {
+        font-size: var(--title-lg);
+        line-height: 1.1;
+      }
+
+      h3 {
+        font-size: var(--title-md);
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: var(--body-md);
+        line-height: 1.6;
+        color: var(--text-secondary);
+      }
+
+      .kicker {
+        text-transform: uppercase;
+        font-size: var(--body-sm);
+        letter-spacing: 0.16em;
+        color: var(--accent);
+      }
+
+      .subtitle {
+        font-size: var(--body-lg);
+        color: var(--text-secondary);
+        max-width: 46rem;
+        text-align: center; /* 副标题统一居中，紧跟主标题居中轴 */
+        margin: 0 auto;
+      }
+
+      /* 列表与布局 */
+      .bullet-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+        gap: clamp(1rem, 3vw, 2.4rem);
+        align-items: flex-start;
+        align-content: center; /* 行整体在卡片内垂直居中 */
+        justify-items: center; /* 两栏内容在各自列内水平居中 */
+        max-width: 52rem;
+        margin: 0 auto; /* 所有 bullet-grid 页统一居中 */
+      }
+
+      .bullet-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--stack-gap);
+        font-size: var(--body-md);
+        color: var(--text-secondary);
+      }
+
+      .bullet-list li {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 0.65rem;
+        line-height: 1.6;
+      }
+
+      .bullet-dot {
+        margin-top: 0.45em;
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 10px var(--accent-soft);
+        flex-shrink: 0;
+      }
+
+      .emphasis {
+        color: #e5e7eb;
+        font-weight: 500;
+      }
+
+      .hint {
+        font-size: var(--body-sm);
+        color: var(--text-muted);
+        text-align: center; /* 提示/收尾语居中，与标题轴一致 */
+      }
+
+      /* slide-content 内直接正文段落居中，与标题/副标题视觉轴统一 */
+      .slide-content > p:not(.subtitle):not(.tagline) {
+        text-align: center;
+        max-width: 52rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* 目录页 */
+      .toc-list {
+        max-width: 46rem;
+        margin: 1.2rem auto 0; /* 水平方向居中整个目录块 */
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.85rem 1.1rem;
+      }
+
+      .toc-list li {
+        background: linear-gradient(
+          120deg,
+          rgba(15, 23, 42, 0.96),
+          rgba(15, 23, 42, 0.9)
+        );
+        border-radius: 14px;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        padding: 0.7rem 1rem;
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.7);
+      }
+
+      .toc-list .bullet-dot {
+        margin-top: 0.35em;
+        width: 6px;
+        height: 6px;
+        background: var(--accent-soft);
+        box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
+      }
+
+      .toc-link {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        color: var(--text-primary);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        font-size: var(--body-md);
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .toc-link:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent-soft);
+      }
+
+      .toc-link::after {
+        content: '↳';
+        font-size: var(--body-sm);
+        color: var(--text-muted);
+        margin-left: 0.6rem;
+      }
+
+      @media (max-width: 900px) {
+        .toc-list {
+          max-width: 36rem;
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      /* 双色背景与装饰 */
+      .slide::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at 12% 0%,
+            rgba(30, 64, 175, 0.18),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 85% 100%,
+            rgba(15, 23, 42, 0.85),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 50% 40%,
+            rgba(15, 23, 42, 0.9),
+            rgba(15, 23, 42, 0.98)
+          ),
+          linear-gradient(135deg, #020617, #000000);
+        opacity: 0.95;
+        z-index: -2;
+      }
+
+      /* slide-inner 自身就是内容卡片，因此不再使用 .slide::after 作为内层边框 */
+
+      .slide.title-slide::before {
+        background: radial-gradient(
+            circle at 0% 0%,
+            rgba(148, 163, 184, 0.38),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 100% 100%,
+            rgba(30, 64, 175, 0.22),
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 30% 50%,
+            rgba(15, 23, 42, 0.9),
+            rgba(15, 23, 42, 0.98)
+          ),
+          linear-gradient(135deg, #020617, #000000);
+      }
+
+      /* 特定内容模块 */
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: var(--body-sm);
+        color: var(--text-muted);
+      }
+
+      .pill {
+        padding: 0.1rem 0.7rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        background: rgba(15, 23, 42, 0.85);
+      }
+
+      .quote-block {
+        border-left: 3px solid var(--accent);
+        padding-left: 1rem;
+        margin-top: 0.25rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 46rem;
+        font-size: var(--body-md);
+        color: var(--text-secondary);
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1rem, 2.4vw, 2rem);
+        align-items: flex-start;
+        align-content: center; /* 行整体在卡片内垂直居中 */
+        justify-items: center; /* 两栏内容在各自列内水平居中 */
+        max-width: 52rem;
+        margin: 0 auto; /* 两栏整体在卡片内水平居中 */
+      }
+
+      .tagline {
+        font-size: var(--body-lg);
+        color: var(--text-secondary);
+        max-width: 40rem;
+      }
+
+      .keyword {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      /* 右上角固定 LOGO */
+      .corner-logo {
+        position: fixed;
+        top: 1.2rem;
+        right: 1.6rem;
+        height: 38px;
+        max-width: 140px;
+        object-fit: contain;
+        z-index: 45;
+        opacity: 0.9;
+        filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.75));
+      }
+
+      /* 封面：整块内容在卡片内完全居中，文字也居中对齐 */
+      .title-slide .slide-content {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .title-slide .subtitle,
+      .title-slide .tagline {
+        max-width: 40rem;
+      }
+
+      .title-slide .pill-row {
+        justify-content: center;
+      }
+
+      /* 第 4 页（系统协作与冲突）：整体块在卡片内更精确居中 */
+      #slide-4 .slide-content {
+        align-items: center;
+      }
+
+      #slide-4 .bullet-grid {
+        max-width: 46rem;
+        margin: 0 auto;
+      }
+
+      /* 目录页：整体内容在卡片中水平居中 */
+      .slide[data-label='目录'] .slide-content {
+        align-items: center;
+      }
+
+      .table-note {
+        font-size: var(--body-sm);
+        color: var(--text-muted);
+      }
+
+      .grid-2x2 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1rem, 2.4vw, 2rem);
+        align-content: center; /* 行整体在卡片内垂直居中 */
+        max-width: 52rem;
+        margin: 0 auto; /* 保证两列内容整体在卡片中水平居中 */
+      }
+
+      .card {
+        padding: 1rem 1.2rem;
+        border-radius: var(--card-radius);
+        background: rgba(15, 23, 42, 0.96);
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        box-shadow: 0 18px 50px rgba(15, 23, 42, 0.85);
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .card-title {
+        font-size: var(--body-md);
+        font-weight: 600;
+        color: #e5e7eb;
+      }
+
+      .card-body {
+        font-size: var(--body-md);
+        color: var(--text-secondary);
+      }
+
+      .mini-label {
+        font-size: var(--body-sm);
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--text-muted);
+      }
+
+      /* 简化版“表格”布局 */
+      .comparison {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) repeat(2, minmax(0, 1fr));
+        gap: 0.75rem 1.4rem;
+        background: rgba(15, 23, 42, 0.96);
+        border-radius: var(--card-radius);
+        padding: 0.9rem 1.1rem;
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        font-size: var(--body-sm);
+        color: var(--text-secondary);
+        max-width: 52rem;
+        margin: 0 auto; /* 三列表格整体居中 */
+      }
+
+      .comparison-header {
+        font-weight: 600;
+        color: #e5e7eb;
+      }
+
+      .comparison .dim {
+        color: var(--text-muted);
+      }
+
+      /* ===========================================
+       动画：进入时渐显
+       =========================================== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity var(--duration-normal) var(--ease-out-expo),
+          transform var(--duration-normal) var(--ease-out-expo);
+      }
+
+      .slide.visible .reveal {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal:nth-child(1) {
+        transition-delay: 0.05s;
+      }
+      .reveal:nth-child(2) {
+        transition-delay: 0.12s;
+      }
+      .reveal:nth-child(3) {
+        transition-delay: 0.2s;
+      }
+      .reveal:nth-child(4) {
+        transition-delay: 0.28s;
+      }
+      .reveal:nth-child(5) {
+        transition-delay: 0.36s;
+      }
+      .reveal:nth-child(6) {
+        transition-delay: 0.44s;
+      }
+
+      /* ===========================================
+       顶部进度条 + 右侧导航点
+       =========================================== */
+      .progress-bar {
+        position: fixed;
+        inset: 0 0 auto;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), #9ca3af);
+        transform-origin: left;
+        transform: scaleX(0);
+        z-index: 40;
+      }
+
+      .nav-dots {
+        position: fixed;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+        z-index: 30;
+      }
+
+      .nav-dot {
+        width: var(--dot-size);
+        height: var(--dot-size);
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.6);
+        background: rgba(15, 23, 42, 0.9);
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.2s ease, background 0.2s ease,
+          border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .nav-dot::after {
+        content: attr(data-label);
+        position: absolute;
+        right: 130%;
+        top: 50%;
+        transform: translateY(-50%);
+        white-space: nowrap;
+        font-size: var(--body-sm);
+        color: var(--text-muted);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .nav-dot:hover::after {
+        opacity: 1;
+        transform: translate(-0.2rem, -50%);
+      }
+
+      .nav-dot.active {
+        background: var(--accent);
+        border-color: var(--accent-strong);
+        box-shadow: 0 0 0 4px var(--accent-soft),
+          0 0 18px rgba(60, 242, 197, 0.65);
+        transform: scale(1.2);
+      }
+
+      /* 左下角提示 */
+      .keyboard-hint {
+        position: fixed;
+        left: 1.6rem;
+        bottom: 1.4rem;
+        font-size: var(--body-sm);
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        z-index: 20;
+      }
+
+      .kbd {
+        border-radius: 6px;
+        border: 1px solid rgba(148, 163, 184, 0.6);
+        padding: 0.15rem 0.4rem;
+        font-family: var(--font-display);
+        font-size: 0.72em;
+        color: #e5e7eb;
+        background: rgba(15, 23, 42, 0.92);
+      }
+
+      /* ===========================================
+       响应式：高度/宽度更小时收紧
+       =========================================== */
+      @media (max-height: 700px) {
+        :root {
+          --slide-padding: clamp(1rem, 3vw, 2.4rem);
+          --content-gap: clamp(0.7rem, 2vw, 1.4rem);
+          --title-xl: clamp(1.8rem, 4.6vw, 3rem);
+        }
+      }
+
+      @media (max-height: 600px) {
+        :root {
+          --slide-padding: clamp(0.8rem, 2.4vw, 2rem);
+          --content-gap: clamp(0.6rem, 1.8vw, 1.2rem);
+          --title-xl: clamp(1.6rem, 4.2vw, 2.5rem);
+          --body-lg: clamp(0.9rem, 1.4vw, 1.05rem);
+        }
+
+        .keyboard-hint {
+          display: none;
+        }
+      }
+
+      @media (max-height: 500px) {
+        :root {
+          --slide-padding: clamp(0.7rem, 2vw, 1.6rem);
+          --content-gap: clamp(0.5rem, 1.5vw, 1rem);
+          --title-xl: clamp(1.4rem, 3.6vw, 2.2rem);
+          --body-md: clamp(0.78rem, 1.1vw, 0.9rem);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .slide::after {
+          inset: 18% 6%;
+        }
+
+        .bullet-grid,
+        .two-col,
+        .grid-2x2,
+        .comparison {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .nav-dots {
+          right: 0.9rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        :root {
+          --slide-padding: clamp(1rem, 5vw, 1.8rem);
+        }
+
+        .slide::after {
+          inset: 16% 4%;
+        }
+      }
+
+      /* 降低动画以尊重系统偏好 */
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          transition: opacity 0.25s ease;
+          transform: none;
+        }
+
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-bar" aria-hidden="true"></div>
+    <nav class="nav-dots" aria-label="跳转到指定页"></nav>
+    <img src="./assets/wsf_logo.png" alt="万师傅 LOGO" class="corner-logo" />
+    <div class="keyboard-hint">
+      <span class="kbd">↑</span><span class="kbd">↓</span>
+      <span class="kbd">Space</span>
+      <span>切换幻灯片</span>
+    </div>
+
+    <!-- =========================
+       封面
+       ========================= -->
+    <section class="slide title-slide" id="slide-1" data-label="封面">
+      <div class="slide-inner">
+        <div class="slide-content">
+          <div class="kicker reveal">读书分享 · 行为经济学</div>
+          <h1 class="reveal">《思考，快与慢》</h1>
+          <p class="subtitle reveal">
+            人是如何做判断与选择的？为什么我们会系统性地偏离理性？
+          </p>
+          <p class="tagline reveal">
+            沿着双系统、启发式偏差与前景理论，一起拆解日常决策背后的心理机制。
+          </p>
+        </div>
+        <div class="pill-row reveal">
+          <span class="pill">丹尼尔·卡尼曼</span>
+          <span class="pill">双系统 · 启发式 · 前景理论</span>
+          <span class="pill">读书笔记 · 张琦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 目录 -->
+    <section class="slide" id="slide-2" data-label="目录">
+      <div class="slide-inner">
+        <div class="slide-content">
+          <h2 class="reveal">目录</h2>
+          <p class="subtitle reveal">本分享共六部分 + 收尾</p>
+          <ul class="bullet-list toc-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <a href="#slide-3" class="toc-link"
+                >第一部分 · 双系统——底层机制</a
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <a href="#slide-5" class="toc-link">第二部分 · 系统 1 如何工作</a>
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <a href="#slide-11" class="toc-link"
+                >第三部分 · 过度自信与决策失误</a
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <a href="#slide-15" class="toc-link"
+                >第四部分 · 决策模型——风险与选择</a
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <a href="#slide-21" class="toc-link"
+                >第五部分 · 纠偏——如何更理性</a
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <a href="#slide-25" class="toc-link">第六部分 · 幸福——两个自我</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第一部分：双系统 -->
+    <section class="slide" id="slide-3" data-label="双系统概览">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第一部分 · 双系统——底层机制</span>
+          </div>
+          <span class="slide-index">03 · 双系统概览</span>
+        </header>
+        <div class="slide-content">
+          <h2 class="reveal">系统 1 vs 系统 2</h2>
+          <p class="subtitle reveal">
+            多数时候，我们被自动运转的<span class="keyword">系统 1</span
+            >拖着走，只有在“需要努力”的时刻，<span class="keyword">系统 2</span
+            >才会慢慢上线。
+          </p>
+          <div class="comparison reveal">
+            <div class="comparison-header"></div>
+            <div class="comparison-header">系统 1（快思考）</div>
+            <div class="comparison-header">系统 2（慢思考）</div>
+
+            <div class="dim">分工</div>
+            <div>自动加工、直觉与启发式</div>
+            <div>复杂任务、有意识推理与自控</div>
+
+            <div class="dim">速度 &amp; 注意力</div>
+            <div>自动、快速，无需意志努力</div>
+            <div>慢速、费力，需要集中注意力</div>
+
+            <div class="dim">思维方式</div>
+            <div>联想式、故事感强，追求“顺眼的连贯性”</div>
+            <div>逻辑式、抽象推理，愿意对抗直觉</div>
+
+            <div class="dim">控制程度</div>
+            <div>难以控制，“第一反应”</div>
+            <div>可控制，可以覆写第一反应</div>
+
+            <div class="dim">例子</div>
+            <div>看到愤怒的脸马上紧张；饥饿/疲劳时更易发火或冲动</div>
+            <div>做 17×24 运算时瞳孔扩张；为了长期目标压住眼前诱惑</div>
+          </div>
+          <p class="hint reveal">
+            心智并非单一“理性人”，而是一套快系统 + 慢系统的协作与拉扯。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-4" data-label="系统协作与冲突">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第一部分 · 双系统——底层机制</span>
+          </div>
+          <span class="slide-index">04 · 协作与冲突</span>
+        </header>
+        <div class="slide-content bullet-grid">
+          <div>
+            <h2 class="reveal">系统 1 的默认统治</h2>
+            <p class="reveal subtitle">
+              我们大部分时间都活在系统 1 自动生成的世界里，系统 2
+              只是偶尔出来“救场”。
+            </p>
+          </div>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">自动填空：</span>系统 1
+                持续在注意力之外“补全信息”，制造一种“我看见了全部”的错觉。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">抑制冲动：</span>系统 2
+                启动时，会压住系统 1 的第一反应（比如看到甜品却不下单）。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">系统 2 很懒：</span
+                >费力、耗能，资源耗尽时就不愿启动，任由直觉和冲动接管。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">自我损耗：</span
+                >认知与情绪自控共用一套有限资源——累/饿/情绪差时，更容易维持现状、拒绝新信息。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第二部分：系统 1 如何工作 -->
+    <section class="slide" id="slide-5" data-label="决策公式">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第二部分 · 系统 1 如何工作</span>
+          </div>
+          <span class="slide-index">05 · 决策公式</span>
+        </header>
+        <div class="slide-content">
+          <h2 class="reveal">一个粗暴但好用的决策公式</h2>
+          <p class="subtitle reveal">
+            <span class="keyword">决策 ≈ 情境依赖</span>：联想 → 启动 →
+            流畅性启发 → 常态理论。
+          </p>
+          <p class="reveal">
+            我们不是在真空里理性计算，而是在当下语境中，被一连串<span
+              class="emphasis"
+              >“想得到什么 / 顺不顺眼”</span
+            >所牵引。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-6" data-label="联想与启动">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第二部分 · 系统 1 如何工作</span>
+          </div>
+          <span class="slide-index">06 · 联想与启动</span>
+        </header>
+        <div class="slide-content two-col">
+          <div>
+            <h2 class="reveal">联想网络：任何线索都不会白给</h2>
+            <p class="subtitle reveal">
+              大脑像一张巨大的联想记忆网，一点点刺激都会扩散到相关节点，默默改变我们的判断。
+            </p>
+          </div>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">联想记忆网络：</span
+                >一个概念被激活，会带出一整串相关概念。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">启动：</span
+                >这些激活是自动、无意识的，却会<span class="keyword"
+                  >系统性改变判断</span
+                >。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">无关线索也有效：</span
+                >“香蕉–呕吐”这类奇怪组合，足以改变你对下一句话的感受。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">具身认知：</span
+                >身体姿势也会反向影响情绪与判断——含笔微笑会觉得漫画更好笑，噘嘴则相反。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-7" data-label="流畅性启发">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第二部分 · 系统 1 如何工作</span>
+          </div>
+          <span class="slide-index">07 · 流畅性</span>
+        </header>
+        <div class="slide-content">
+          <h2 class="reveal">流畅性启发：顺眼即合理</h2>
+          <p class="subtitle reveal">
+            “看着顺 / 读着顺”的东西，更容易被系统 1 判定为<span class="keyword"
+              >靠谱、真实、可能</span
+            >。
+          </p>
+          <div class="card reveal">
+            <div class="mini-label">例子</div>
+            <div class="card-body">
+              科学家究研明表：汉字的序顺并不影阅响读，比如当你完看这段话的时，才候发觉这几句全话是乱的。
+            </div>
+          </div>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span>加工越容易 → 越容易被误判为“真实”“可能”“没问题”。</span>
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span>系统 1 不区分“容易想到”和“真的更可能”。</span>
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >好读的股票代码，更容易被当成好公司；越容易想象/回忆的事件，越被认为“快要发生”。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >能激发联想、营造顺畅体验的环境，更容易点燃创意与自信。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-8" data-label="常态理论与情境">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第二部分 · 系统 1 如何工作</span>
+          </div>
+          <span class="slide-index">08 · 常态与情境</span>
+        </header>
+        <div class="slide-content bullet-grid">
+          <div>
+            <h2 class="reveal">常态理论：我们活在“事后合理化”的世界</h2>
+            <p class="subtitle reveal">
+              系统 1
+              不断在脑中搭建“正常世界”的模型，一旦发生了，它就会帮你找到一个合乎情理的故事。
+            </p>
+          </div>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">常态理论：</span
+                >事后合理化、“后见之明”“眼见为实”，让我们低估运气与统计。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">情境依赖知觉：</span
+                >同一个刺激在不同情境里，被赋予完全不同的含义（字母 B vs 数字
+                13）。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >系统 1
+                追求连贯故事，会自动“填满”语境，把缺失信息补成一个完整世界。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">信念偏好：</span
+                >首因效应、光环效应让我们先入为主，再用故事把一切圆回来。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-9" data-label="启发式策略">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第二部分 · 系统 1 如何工作</span>
+          </div>
+          <span class="slide-index">09 · 启发式</span>
+        </header>
+        <div class="slide-content grid-2x2">
+          <div class="card reveal">
+            <div class="card-title">替代</div>
+            <div class="card-body">
+              复杂问题会被悄悄替换成一个更简单的问题，答案却直接当成原题答案。<br />
+              <span class="hint">例：“谁更可能当选？”→“谁看起来像赢家？”</span>
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="card-title">代表性 &amp; 可得性</div>
+            <div class="card-body">
+              <span class="emphasis">代表性：</span
+              >像不像某类，导致忽视基础比率，违背贝叶斯。<br />
+              <span class="emphasis">可得性：</span
+              >想不想得到，近期新闻/身边案例会让我们高估风险。
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="card-title">锚定效应</div>
+            <div class="card-body">
+              先出现的数字或信息成为锚，后续估计围绕锚微调，但总是调整不足。<br />
+              问卷中的默认值、谈判中的首次报价，都是刻意设计的锚。
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="card-title">情感启发式</div>
+            <div class="card-body">
+              因为<span class="keyword">喜欢</span>，所以觉得<span
+                class="keyword"
+                >对</span
+              >；“喜不喜欢”经常替代“对不对”。<br />
+              这让我们在品牌、人物、观点面前，难以真正客观。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-10" data-label="系统1偏见">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第二部分 · 系统 1 如何工作</span>
+          </div>
+          <span class="slide-index">10 · 系统 1 偏见</span>
+        </header>
+        <div class="slide-content">
+          <h2 class="reveal">系统 1 的典型偏见</h2>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">情绪与风险：</span
+                >对“可怕但罕见”的事件过度反应，忽视更大概率的日常风险。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">合取谬误：</span
+                >越具体、越“像某类”的描述，反而被认为更可能（违反“联言 ≤
+                单言”）。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">因果 > 统计：</span
+                >有故事的基础比率更容易被采纳，纯统计数字则被忽略。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">回归均值误读：</span
+                >把统计上的回归，当成干预的结果，是非常常见的错觉。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">直觉预测：</span
+                >往往过于极端、过度自信，对极端情境反应过度。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第三部分：过度自信 -->
+    <section class="slide" id="slide-11" data-label="知道的错觉">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第三部分 · 过度自信与决策失误</span>
+          </div>
+          <span class="slide-index">11 · 知道的错觉</span>
+        </header>
+        <div class="slide-content">
+          <h2 class="reveal">“我早就知道会这样”的错觉</h2>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">后见之明：</span
+                >事后高估事前的可预测性，以为“其实当时就看出来了”。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >我们的记忆会被事后信息污染，重构出一条看似顺畅的“早就知道”的叙事线。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >久而久之，连我们自己都分不清：当时真实的判断，和现在加工过的记忆，到底哪个是真的。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-12" data-label="专家直觉">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第三部分 · 过度自信与决策失误</span>
+          </div>
+          <span class="slide-index">12 · 专家直觉</span>
+        </header>
+        <div class="slide-content bullet-grid">
+          <div>
+            <h2 class="reveal">何时可以相信专家直觉？</h2>
+            <p class="subtitle reveal">
+              并不是所有领域都适合发展可靠的“第六感”，前提是：<span
+                class="keyword"
+                >规律稳定 + 反馈及时</span
+              >。
+            </p>
+          </div>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">适合：</span
+                >棋手、消防员等——高规律性、充足反馈、长期训练。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">慎用：</span
+                >医生诊断、投资选股等——噪声大、反馈滞后，专家预测常不优于随机或简单规则。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >专家很难稳定、准确地给各个线索赋权，<span class="keyword"
+                  >少量关键变量 + 线性模型</span
+                >往往比专家综合判断更可靠。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-13" data-label="规划谬误与外部意见">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第三部分 · 过度自信与决策失误</span>
+          </div>
+          <span class="slide-index">13 · 规划谬误与外部意见</span>
+        </header>
+        <div class="slide-content two-col">
+          <div>
+            <h2 class="reveal">规划谬误与外部意见</h2>
+            <p class="subtitle reveal">
+              我们天然沉迷于“内部故事”，却很少认真看“外部统计”。
+            </p>
+          </div>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">内部意见：</span
+                >基于当前案例的细节与故事（我们天然偏向）。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">外部意见：</span
+                >同类案例的统计分布（常被忽略）。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span>规划谬误普遍存在：项目时长、成本、难度常被低估。</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-14" data-label="乐观的双面">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第三部分 · 过度自信与决策失误</span>
+          </div>
+          <span class="slide-index">14 · 乐观的双面</span>
+        </header>
+        <div class="slide-content">
+          <h2 class="reveal">乐观的双面</h2>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span><span class="emphasis">好处：</span>推动行动与创新。</span>
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">代价：</span
+                >过度自信、规划谬误、竞争忽视（如大片扎堆）。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第四部分：风险与选择 -->
+    <section class="slide" id="slide-15" data-label="前景理论">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第四部分 · 决策模型——风险与选择</span>
+          </div>
+          <span class="slide-index">15 · 前景理论</span>
+        </header>
+        <div class="slide-content">
+          <h2 class="reveal">从期望效用到前景理论</h2>
+          <p class="subtitle reveal">
+            传统的<span class="keyword">期望效用理论</span
+            >描述“理性人应当如何选择”，卡尼曼与特沃斯基的<span class="keyword"
+              >前景理论</span
+            >描写“人实际如何选择”。
+          </p>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">价值函数：</span
+                >以参照点为原点；损失的痛苦 ≈
+                等额收益的两倍（损失厌恶），在两端边际敏感度递减。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">概率权重：</span
+                >人对概率的感知是非线性的：小概率被高估（可能性效应），接近 100%
+                被特别看重（确定性效应）。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-16" data-label="损失厌恶">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第四部分 · 决策模型——风险与选择</span>
+          </div>
+          <span class="slide-index">16 · 损失厌恶</span>
+        </header>
+        <div class="slide-content two-col">
+          <div>
+            <h2 class="reveal">损失厌恶与反射效应</h2>
+            <p class="subtitle reveal">
+              我们对失去的反应远大于得到，这会在收益区和损失区产生完全不同的风险偏好。
+            </p>
+          </div>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="keyword">损失厌恶：</span
+                >损失带来的痛苦约是等额收益快乐的两倍。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">反射效应：</span
+                >在收益区，我们倾向于规避风险；到了损失区，却开始寻求一把翻盘的冒险。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-17" data-label="四重模式">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第四部分 · 决策模型——风险与选择</span>
+          </div>
+          <span class="slide-index">17 · 四重模式</span>
+        </header>
+        <div class="slide-content">
+          <h2 class="reveal">四重模式：收益 / 损失 × 概率高 / 低</h2>
+          <p class="subtitle reveal">
+            人们对风险的态度，取决于：是在收益还是损失一侧？概率是高还是低？
+          </p>
+          <div class="grid-2x2 reveal">
+            <div class="card">
+              <div class="mini-label">高概率 · 收益</div>
+              <div class="card-body">
+                倾向<span class="emphasis">风险规避</span
+                >——宁要一个确定的收益，而不是稍大一点但有风险的收益。
+              </div>
+            </div>
+            <div class="card">
+              <div class="mini-label">低概率 · 收益</div>
+              <div class="card-body">
+                倾向<span class="emphasis">风险寻求</span
+                >——比如买彩票，小概率中大奖的诱惑远超其期望值。
+              </div>
+            </div>
+            <div class="card">
+              <div class="mini-label">高概率 · 损失</div>
+              <div class="card-body">
+                倾向<span class="emphasis">风险寻求</span
+                >——宁肯赌一把躲过去，而不愿接受一个确定的损失。
+              </div>
+            </div>
+            <div class="card">
+              <div class="mini-label">低概率 · 损失</div>
+              <div class="card-body">
+                倾向<span class="emphasis">风险规避</span
+                >——比如买保险，为了避免小概率大损失，愿意支付确定的小损失。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-18" data-label="禀赋效应与心理账户">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第四部分 · 决策模型——风险与选择</span>
+          </div>
+          <span class="slide-index">18 · 禀赋与账户</span>
+        </header>
+        <div class="slide-content bullet-grid">
+          <div>
+            <h2 class="reveal">禀赋效应与心理账户</h2>
+            <p class="subtitle reveal">
+              一旦拥有，就会高估价值；一旦分账，就会在不同账户里表现出不同风险偏好。
+            </p>
+          </div>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="keyword">禀赋效应：</span
+                >拥有某物会提高其主观价值——卖价总是高于自己愿意买入的价格。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >和损失厌恶结合，就变成了强烈的<span class="emphasis"
+                  >现状偏见</span
+                >：任何改变都像损失。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="keyword">心理账户：</span
+                >不同账户有不同的参照点与风险态度，可解释“卖盈持亏”“中了彩票却乱花”等行为。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-19" data-label="框架与参照点">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第四部分 · 决策模型——风险与选择</span>
+          </div>
+          <span class="slide-index">19 · 框架与参照点</span>
+        </header>
+        <div class="slide-content bullet-grid">
+          <div>
+            <h2 class="reveal">框架与参照点：公平感的力量</h2>
+            <p class="subtitle reveal">
+              我们的判断，往往不是关于“绝对得失”，而是关于“相对于参照点，是否被对待得公平”。
+            </p>
+          </div>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">公平作参照点：</span
+                >人们用“公平”来评估交易和分配，一旦感觉被占便宜，就会宁可放弃互利。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">参照点来源：</span
+                >原价/原薪、当前现状、别人/别处的待遇——实际低于这些点就会被判为“不公平”。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">窄 / 宽框架：</span
+                >窄框架放大损失厌恶（频繁看涨跌），宽框架平滑波动、接近理性（定投、分散、长期视角）。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">评估模式：</span>综合 vs
+                单独评估会导致偏好逆转——综合时看“可比指标”，单独时更看情感与故事。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-20" data-label="罕见事件">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第四部分 · 决策模型——风险与选择</span>
+          </div>
+          <span class="slide-index">20 · 罕见事件</span>
+        </header>
+        <div class="slide-content">
+          <h2 class="reveal">罕见事件与风险错觉</h2>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >罕见事件往往被<span class="emphasis">可能性 + 可得性</span
+                >双重扭曲：报道多、画面冲击、身边个案都会让我们主观上高估它们。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >在很长的时间序列里，人们又容易忽视这些小概率——分母太大，直觉跟不上。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >没有故事的慢性风险（如长期压力、缺乏运动），因为难以被“想起”，反而被严重低估。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第五部分：纠偏 -->
+    <section class="slide" id="slide-21" data-label="统计思维与基准">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第五部分 · 纠偏——如何更理性</span>
+          </div>
+          <span class="slide-index">21 · 统计与基准</span>
+        </header>
+        <div class="slide-content">
+          <h2 class="reveal">统计思维与基准：给直觉加上护栏</h2>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">大数法则：</span
+                >只有大样本才稳定，小样本的波动非常大，别急着从两个点画出一条线。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span>我们天然喜欢给小样本编故事，把噪声当成规律。</span>
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >用<span class="keyword">基准 + 回归</span
+                >来约束判断：先看同类案例的分布，再在此基础上做局部调整，能显著提高校准度。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-22" data-label="判断偏误纠偏">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第五部分 · 纠偏——如何更理性</span>
+          </div>
+          <span class="slide-index">22 · 判断纠偏</span>
+        </header>
+        <div class="slide-content grid-2x2">
+          <div class="card reveal">
+            <div class="card-title">流畅性</div>
+            <div class="card-body">
+              用“反流畅”检验观点：换个表述、问相反问题、刻意逆向思考，看结论是否依然站得住。
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="card-title">情境与叙事</div>
+            <div class="card-body">
+              主动引入统计和基准，对冲故事的煽动力。真实决策应该尽量基于<span
+                class="keyword"
+                >事前信息与概率</span
+              >。
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="card-title">锚定与合取</div>
+            <div class="card-body">
+              警惕被别人设锚，也会在谈判中主动设锚。去掉多余细节，检查“删掉之后，概率是不是应该更高？”。
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="card-title">情绪与风险</div>
+            <div class="card-body">
+              做决策时同时看两种结果：统计上的长期后果，以及情绪上的短期影响，避免只盯着其中一边。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-23" data-label="选择与风险纠偏">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第五部分 · 纠偏——如何更理性</span>
+          </div>
+          <span class="slide-index">23 · 选择与风险纠偏</span>
+        </header>
+        <div class="slide-content bullet-grid">
+          <div>
+            <h2 class="reveal">针对选择与风险的纠偏</h2>
+            <p class="subtitle reveal">
+              不是把情绪全删掉，而是在关键节点上，给系统 2 多争取一点出场时间。
+            </p>
+          </div>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">禀赋效应：</span
+                >用机会成本而不是沉没成本思考——“如果现在没拥有，我还会这么选吗？”</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">框架与罕见事件：</span
+                >用宽框架、长期视角（定投、分散），让极端波动在时间上被摊薄。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">换框架检验：</span
+                >同一决策用收益/损失、单独/综合、宽/窄等不同框架各想一遍，看偏好是否稳定。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-24" data-label="流程与制度纠偏">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第五部分 · 纠偏——如何更理性</span>
+          </div>
+          <span class="slide-index">24 · 流程与制度</span>
+        </header>
+        <div class="slide-content bullet-grid">
+          <div>
+            <h2 class="reveal">流程与制度：为组织搭建“理性外骨骼”</h2>
+            <p class="subtitle reveal">
+              靠个人一时清醒很难，靠制度把“清醒”固化进流程，更现实。
+            </p>
+          </div>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="keyword">公式化预测：</span
+                >多数场景下，简单的打分表 +
+                线性模型，比非结构化的专家判断更稳。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">事前记录 &amp; 事前验尸：</span
+                >在项目开始前写下预期，并假设项目已失败，反推至少三条失败原因。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">外部意见 &amp; 冷静期：</span
+                >强制引入同类案例统计；对重大决策设置“冷静期”，让系统 2
+                有时间介入。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第六部分：两个自我与幸福 -->
+    <section class="slide" id="slide-25" data-label="体验自我与记忆自我">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第六部分 · 幸福——两个自我</span>
+          </div>
+          <span class="slide-index">25 · 两个自我</span>
+        </header>
+        <div class="slide-content bullet-grid">
+          <div>
+            <h2 class="reveal">体验自我 vs 记忆自我</h2>
+            <p class="subtitle reveal">
+              “正在经历的我”和“事后讲故事的我”，对同一段生活，常常给出截然不同的评价。
+            </p>
+          </div>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="keyword">体验自我：</span
+                >活在当下，关心此刻的痛苦与愉悦。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="keyword">记忆自我：</span
+                >负责叙事与决策，关心故事是否好听、结局是否体面。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >决策时预期的效用（决策效用）与事后实际体验（体验效用）常不一致，记忆会不断改写体验。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-26" data-label="幸福与评价">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>第六部分 · 幸福——两个自我</span>
+          </div>
+          <span class="slide-index">26 · 幸福与评价</span>
+        </header>
+        <div class="slide-content">
+          <h2 class="reveal">幸福的两层含义</h2>
+          <ul class="bullet-list">
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                ><span class="emphasis">峰终定律 + 时长忽视：</span
+                >记忆更多看体验的峰值和结尾，而不是总时长。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >“过得幸福”既可以指体验上的正面情绪，也可以指对整个人生的满意度评价。</span
+              >
+            </li>
+            <li class="reveal">
+              <span class="bullet-dot"></span>
+              <span
+                >生活满意度极易受到当前情境与可得信息影响——<span class="keyword"
+                  >我们以为自己懂自己，其实并不透明</span
+                >。</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 收尾 -->
+    <section class="slide" id="slide-27" data-label="收尾">
+      <div class="slide-inner">
+        <header class="slide-header">
+          <div class="section-label">
+            <span class="section-label-dot"></span>
+            <span>收尾</span>
+          </div>
+          <span class="slide-index">27 · 分享</span>
+        </header>
+        <div class="slide-content">
+          <h2 class="reveal">收个尾：和偏见好好相处</h2>
+          <div class="quote-block reveal">
+            偏见，可能是小丑的面具 🤡，也可能是撒旦之邪力 ⚔。<br />
+            关键不在于有没有偏见，而在于我们能不能识别它、利用它、在关键时刻不被裹挟。
+          </div>
+          <p class="subtitle reveal">
+            让系统 1 保持灵敏、敢于联想；也给系统 2
+            预留一点空间，在重要节点按下暂停键。
+          </p>
+          <p class="hint reveal">Thanks.</p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      /* ===========================================
+       简易幻灯片控制器
+       - 键盘（↑ ↓ Space）导航
+       - 右侧导航点点击跳转
+       - 进度条与可见动画
+       =========================================== */
+      class SlideDeck {
+        constructor() {
+          this.slides = Array.from(document.querySelectorAll('.slide'));
+          this.progressBar = document.querySelector('.progress-bar');
+          this.navDotsContainer = document.querySelector('.nav-dots');
+          this.currentIndex = 0;
+
+          this.buildNavDots();
+          this.bindKeyboard();
+          this.observeSlides();
+          this.updateProgress(0);
+        }
+
+        buildNavDots() {
+          this.slides.forEach((slide, index) => {
+            const label =
+              slide.getAttribute('data-label') || `第 ${index + 1} 页`;
+            const dot = document.createElement('button');
+            dot.className = 'nav-dot';
+            dot.type = 'button';
+            dot.setAttribute('aria-label', label);
+            dot.dataset.index = String(index);
+            dot.dataset.label = label;
+            dot.addEventListener('click', () => {
+              this.scrollToSlide(index);
+            });
+            this.navDotsContainer.appendChild(dot);
+          });
+          this.setActiveDot(0);
+        }
+
+        bindKeyboard() {
+          document.addEventListener('keydown', (e) => {
+            if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+            if (
+              e.key === 'ArrowDown' ||
+              e.key === 'PageDown' ||
+              e.key === ' '
+            ) {
+              e.preventDefault();
+              this.next();
+            } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+              e.preventDefault();
+              this.prev();
+            }
+          });
+        }
+
+        observeSlides() {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                const index = this.slides.indexOf(entry.target);
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+                  if (index !== -1) {
+                    this.currentIndex = index;
+                    this.updateProgress(index);
+                    this.setActiveDot(index);
+                  }
+                }
+              });
+            },
+            {
+              threshold: 0.55,
+            },
+          );
+          this.slides.forEach((slide) => observer.observe(slide));
+        }
+
+        scrollToSlide(index) {
+          const clamped = Math.max(0, Math.min(this.slides.length - 1, index));
+          const target = this.slides[clamped];
+          if (!target) return;
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        next() {
+          this.scrollToSlide(this.currentIndex + 1);
+        }
+
+        prev() {
+          this.scrollToSlide(this.currentIndex - 1);
+        }
+
+        updateProgress(index) {
+          const ratio =
+            this.slides.length <= 1 ? 1 : (index + 1) / this.slides.length;
+          if (this.progressBar) {
+            this.progressBar.style.transform = `scaleX(${ratio})`;
+          }
+        }
+
+        setActiveDot(index) {
+          const dots = Array.from(
+            this.navDotsContainer.querySelectorAll('.nav-dot'),
+          );
+          dots.forEach((dot, i) => {
+            if (i === index) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        }
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        new SlideDeck();
+      });
+    </script>
+  </body>
+</html>
