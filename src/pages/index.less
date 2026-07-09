@@ -47,16 +47,28 @@
         margin: 8px 0;
       }
     }
+    .download-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 30px;
+    }
     .download {
-      width: 200px;
+      width: 220px;
       height: 50px;
       line-height: 50px;
       border-radius: 25px;
-      margin-top: 30px;
       color: #ffffff;
       background-color: #32b2a7;
       font-size: 14px;
       text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      &:hover {
+        background-color: #2a9d93;
+      }
     }
   }
   .bottom {

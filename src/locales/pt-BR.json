@@ -12,6 +12,12 @@
     "Faq_Answer4": "1. A tampa do compartimento de papel pode não estar fechada corretamente.\n2. Verifique se o rolo de papel está acabado; se estiver, substitua-o por um novo.\n3. Verifique se há papel encravado; tente reinstalar o rolo de papel.",
     "DownloadInstall": "Baixar e instalar",
     "AppTitle": "PrinterMate",
+    "AppDescription": "Um aplicativo de mini impressora para imprimir etiquetas e padrões com praticidade.",
+    "DownloadAppStore": "Baixar na App Store",
+    "DownloadGooglePlay": "Baixar no Google Play",
+    "DownloadAndroidApk": "Baixar APK Android",
+    "IcpRecord": "豫ICP备2021019481号",
+    "Copyright": "© 2025 Desenvolvedor individual. Todos os direitos reservados.",
     "OpenInBrowser": "Abrir no navegador"
   }
 }

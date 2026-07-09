@@ -12,6 +12,12 @@
     "Faq_Answer4": "1. Le couvercle du bac à papier n'est peut-être pas fermé correctement.\n2. Vérifiez si le rouleau de papier est épuisé ; si c'est le cas, remplacez-le par un nouveau.\n3. Vérifiez s'il y a un bourrage papier ; essayez de réinstaller le rouleau de papier.",
     "DownloadInstall": "Télécharger et installer",
     "AppTitle": "PrinterMate",
+    "AppDescription": "Une application de mini-imprimante pour imprimer facilement des étiquettes et des motifs.",
+    "DownloadAppStore": "Télécharger sur l'App Store",
+    "DownloadGooglePlay": "Télécharger sur Google Play",
+    "DownloadAndroidApk": "Télécharger l'APK Android",
+    "IcpRecord": "豫ICP备2021019481号",
+    "Copyright": "© 2025 Développeur individuel. Tous droits réservés.",
     "OpenInBrowser": "Ouvrir dans le navigateur"
   }
 }

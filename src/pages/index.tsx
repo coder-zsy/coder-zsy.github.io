@@ -1,4 +1,6 @@
+import '@/locales/i18n';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './index.less';
 
 // import AppLogo from '@/assets/index/appLogo.png';
@@ -8,42 +10,24 @@ import Left from '@/assets/index/left.png';
 import OpenInBroswer from '@/assets/index/openInBroswer.png';
 import Right from '@/assets/index/right.png';
 
+const DOWNLOAD_LINKS = {
+  appStore: 'https://apps.apple.com/us/app/printermate/id6738001101',
+  googlePlay:
+    'https://play.google.com/store/apps/details?id=com.anonymous.bluetoothprinter',
+  androidApk: 'http://qiniu.toyslove.cn/printer-mate-1.0.9.apk',
+};
+
 const App = () => {
+  const { t } = useTranslation();
   const [isWeChat, setIsWeChat] = useState(false);
-  const [appName, setAppName] = useState('PrinterMate');
-  const [downloadText, setDownloadText] = useState('下载安装');
 
   useEffect(() => {
     const ua = navigator.userAgent;
     setIsWeChat(ua.indexOf('MicroMessenger') > -1);
-    console.log('==========', navigator);
-    const language = (
-      navigator.browserLanguage || navigator.language
-    ).toLowerCase();
-    if (language.indexOf('zh') > -1) {
-      // zh-cn
-    } else if (language.indexOf('en') > -1) {
-      // 英文
-      setAppName('TOYS');
-      setDownloadText('Download and install');
-    } else {
-    }
   }, []);
 
-  const downLoad = () => {
-    const ua = navigator.userAgent;
-    if (ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1) {
-      window.location.href =
-        'https://play.google.com/store/apps/details?id=com.anonymous.bluetoothprinter';
-    } else if (!!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
-      // iOS 设备，通过AppStore下载
-      window.location.href =
-        'https://apps.apple.com/us/app/printermate/id6738001101';
-    } else {
-      // 其他平台的下载逻辑可以在这里添加
-      window.location.href =
-        'https://play.google.com/store/apps/details?id=com.anonymous.bluetoothprinter';
-    }
+  const openDownloadLink = (url: string) => {
+    window.location.href = url;
   };
 
   return (
@@ -52,18 +36,30 @@ const App = () => {
       <img src={Right} className="bg-right" />
       <div className="content">
         <img className="app-logo" src={AppLogo} />
-        <p className="baile-title">{appName}</p>
+        <p className="baile-title">{t('AppTitle')}</p>
         <div className="app-description">
-          <p className="description-text">
-            这是一个个人开发的移动应用程序，用于提供便捷的工具和服务。
-          </p>
-          <p className="description-text">
-            本应用为个人作品，仅供学习和交流使用。
-          </p>
+          <p className="description-text">{t('AppDescription')}</p>
         </div>
-        <button onClick={downLoad} className="download">
-          {downloadText}
-        </button>
+        <div className="download-buttons">
+          <button
+            onClick={() => openDownloadLink(DOWNLOAD_LINKS.appStore)}
+            className="download"
+          >
+            {t('DownloadAppStore')}
+          </button>
+          <button
+            onClick={() => openDownloadLink(DOWNLOAD_LINKS.googlePlay)}
+            className="download"
+          >
+            {t('DownloadGooglePlay')}
+          </button>
+          <button
+            onClick={() => openDownloadLink(DOWNLOAD_LINKS.androidApk)}
+            className="download"
+          >
+            {t('DownloadAndroidApk')}
+          </button>
+        </div>
       </div>
       <div className="bottom">
         <div className="footer-info">
@@ -73,9 +69,9 @@ const App = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            豫ICP备2021019481号
+            {t('IcpRecord')}
           </a>
-          <p className="copyright">© 2025 个人开发者. All rights reserved.</p>
+          <p className="copyright">{t('Copyright')}</p>
         </div>
       </div>
       {isWeChat && (
@@ -83,7 +79,7 @@ const App = () => {
           <img
             className="guide img-responsive"
             src={OpenInBroswer}
-            alt="Open in Browser"
+            alt={t('OpenInBrowser')}
           />
         </div>
       )}
