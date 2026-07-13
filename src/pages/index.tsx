@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './index.less';
 
-// import AppLogo from '@/assets/index/appLogo.png';
 import AppLogo from '@/assets/index/printerMateLogo.png';
+import AppStoreBadge from '@/assets/index/app-store-badge.svg';
+import GooglePlayBadge from '@/assets/index/google-play-badge.png';
+import AndroidIcon from '@/assets/index/android-icon.svg';
 
 import Left from '@/assets/index/left.png';
 import OpenInBroswer from '@/assets/index/openInBroswer.png';
@@ -14,10 +16,23 @@ const DOWNLOAD_LINKS = {
   appStore: 'https://apps.apple.com/us/app/printermate/id6738001101',
   googlePlay:
     'https://play.google.com/store/apps/details?id=com.anonymous.bluetoothprinter',
-  // 使用稳定的自定义域名直链；勿把带 Expires 的临时签名 URL 写进代码（会过期）
-  // 需在 OSS 将该文件设为「公共读」，或通过后端动态生成签名 URL
   androidApk: 'https://oss.toyslove.cn/printer-mate-1.0.9.apk',
 };
+
+const STORE_BADGES = [
+  {
+    key: 'appStore',
+    url: DOWNLOAD_LINKS.appStore,
+    badge: AppStoreBadge,
+    labelKey: 'DownloadAppStore',
+  },
+  {
+    key: 'googlePlay',
+    url: DOWNLOAD_LINKS.googlePlay,
+    badge: GooglePlayBadge,
+    labelKey: 'DownloadGooglePlay',
+  },
+] as const;
 
 const App = () => {
   const { t } = useTranslation();
@@ -29,7 +44,6 @@ const App = () => {
   }, []);
 
   const openDownloadLink = (url: string) => {
-    // 跨域 APK 不使用 download 属性，避免 Chrome 先 fetch 再校验 HTTPS 时报 insecure connection
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -44,23 +58,33 @@ const App = () => {
           <p className="description-text">{t('AppDescription')}</p>
         </div>
         <div className="download-buttons">
-          <button
-            onClick={() => openDownloadLink(DOWNLOAD_LINKS.appStore)}
-            className="download"
-          >
-            {t('DownloadAppStore')}
-          </button>
-          <button
-            onClick={() => openDownloadLink(DOWNLOAD_LINKS.googlePlay)}
-            className="download"
-          >
-            {t('DownloadGooglePlay')}
-          </button>
+          {STORE_BADGES.map(({ key, url, badge, labelKey }) => (
+            <button
+              key={key}
+              onClick={() => openDownloadLink(url)}
+              className="download-badge"
+            >
+              <img
+                src={badge}
+                alt={t(labelKey)}
+                className="download-badge-image"
+              />
+            </button>
+          ))}
           <button
             onClick={() => openDownloadLink(DOWNLOAD_LINKS.androidApk)}
-            className="download"
+            className="download-direct"
           >
-            {t('DownloadAndroidApk')}
+            <img
+              src={AndroidIcon}
+              alt=""
+              className="download-direct-icon"
+              aria-hidden="true"
+            />
+            <span className="download-direct-text">
+              <span className="download-direct-label">{t('DirectDownload')}</span>
+              <span className="download-direct-title">Android APK</span>
+            </span>
           </button>
         </div>
       </div>

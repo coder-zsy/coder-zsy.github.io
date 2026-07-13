@@ -51,23 +51,66 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       margin-top: 30px;
     }
-    .download {
-      width: 220px;
-      height: 50px;
-      line-height: 50px;
-      border-radius: 25px;
-      color: #ffffff;
-      background-color: #32b2a7;
-      font-size: 14px;
-      text-align: center;
+    .download-badge {
+      padding: 0;
       border: none;
+      background: transparent;
       cursor: pointer;
-      transition: background-color 0.2s ease;
+      line-height: 0;
+      border-radius: 8px;
+      transition: opacity 0.2s ease;
       &:hover {
-        background-color: #2a9d93;
+        opacity: 0.88;
+      }
+      .download-badge-image {
+        display: block;
+        width: 168px;
+        height: auto;
+      }
+    }
+    .download-direct {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: 168px;
+      min-height: 50px;
+      padding: 8px 10px 8px 8px;
+      border: 1px solid #a6a6a6;
+      border-radius: 8px;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+      &:hover {
+        opacity: 0.88;
+      }
+      .download-direct-icon {
+        width: 34px;
+        height: 34px;
+        flex-shrink: 0;
+      }
+      .download-direct-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1.15;
+        min-width: 0;
+        flex: 1;
+      }
+      .download-direct-label {
+        font-size: 10px;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        opacity: 0.9;
+        white-space: nowrap;
+      }
+      .download-direct-title {
+        font-size: 16px;
+        font-weight: 600;
+        white-space: nowrap;
       }
     }
   }
