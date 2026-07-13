@@ -1,5 +1,5 @@
 import '@/locales/i18n';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './index.less';
 
@@ -36,12 +36,12 @@ const STORE_BADGE_CONFIG = [
 const App = () => {
   const { t, i18n } = useTranslation();
   const localizedBadges = getLocalizedStoreBadges(i18n.language);
-  const [isWeChat, setIsWeChat] = useState(false);
-
-  useEffect(() => {
-    const ua = navigator.userAgent;
-    setIsWeChat(ua.indexOf('MicroMessenger') > -1);
-  }, []);
+  // 首屏同步读 UA，避免 useEffect 延迟导致微信内先露出下载按钮
+  const [isWeChat] = useState(
+    () =>
+      typeof navigator !== 'undefined' &&
+      /MicroMessenger/i.test(navigator.userAgent),
+  );
 
   const openDownloadLink = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
