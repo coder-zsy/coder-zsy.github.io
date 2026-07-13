@@ -1,28 +1,15 @@
-import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { getLocalizedStoreBadges } from '@/assets/index/badges/storeBadges';
 import AndroidIcon from '@/assets/index/android-icon.svg';
+import { getLocalizedStoreBadges } from '@/assets/index/badges/storeBadges';
 
 import { DOWNLOAD_LINKS, getStoreUrlByUserAgent } from './downloadLinks';
-import { detectMainlandChina, isLikelyMainlandChina } from './regionDetect';
+import { isMainlandChina } from './regionDetect';
 
 const DownloadButtons = () => {
   const { t, i18n } = useTranslation();
   const localizedBadges = getLocalizedStoreBadges(i18n.language);
-  const [isMainlandChina, setIsMainlandChina] = useState(isLikelyMainlandChina);
-
-  useEffect(() => {
-    let cancelled = false;
-    detectMainlandChina().then((result) => {
-      if (!cancelled) {
-        setIsMainlandChina(result);
-      }
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const showMainlandButtons = isMainlandChina();
 
   const openDownloadLink = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -32,7 +19,7 @@ const DownloadButtons = () => {
     window.location.href = getStoreUrlByUserAgent();
   };
 
-  if (isMainlandChina) {
+  if (showMainlandButtons) {
     return (
       <div className="download-buttons">
         <button
