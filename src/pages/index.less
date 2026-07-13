@@ -126,6 +126,22 @@
         white-space: nowrap;
       }
     }
+    .download-smart {
+      width: 168px;
+      min-height: 50px;
+      padding: 0 24px;
+      border: none;
+      border-radius: 25px;
+      background-color: #32b2a7;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, opacity 0.2s ease;
+      &:hover {
+        background-color: #2a9d93;
+        opacity: 0.95;
+      }
+    }
   }
   .bottom {
     position: absolute;
@@ -214,6 +230,12 @@
       .download-direct {
         width: 156px;
         min-height: 46px;
+      }
+
+      .download-smart {
+        width: 156px;
+        min-height: 46px;
+        font-size: 13px;
       }
     }
   }
