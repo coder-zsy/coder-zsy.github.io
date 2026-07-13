@@ -14,7 +14,9 @@ const DOWNLOAD_LINKS = {
   appStore: 'https://apps.apple.com/us/app/printermate/id6738001101',
   googlePlay:
     'https://play.google.com/store/apps/details?id=com.anonymous.bluetoothprinter',
-  androidApk: 'http://qiniu.toyslove.cn/printer-mate-1.0.9.apk',
+  // 使用稳定的自定义域名直链；勿把带 Expires 的临时签名 URL 写进代码（会过期）
+  // 需在 OSS 将该文件设为「公共读」，或通过后端动态生成签名 URL
+  androidApk: 'https://oss.toyslove.cn/printer-mate-1.0.9.apk',
 };
 
 const App = () => {
@@ -27,7 +29,8 @@ const App = () => {
   }, []);
 
   const openDownloadLink = (url: string) => {
-    window.location.href = url;
+    // 跨域 APK 不使用 download 属性，避免 Chrome 先 fetch 再校验 HTTPS 时报 insecure connection
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
