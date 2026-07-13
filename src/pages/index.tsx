@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 import './index.less';
 
 import AppLogo from '@/assets/index/printerMateLogo.png';
-import AppStoreBadge from '@/assets/index/app-store-badge.svg';
-import GooglePlayBadge from '@/assets/index/google-play-badge.png';
+import { getLocalizedStoreBadges } from '@/assets/index/badges/storeBadges';
 import AndroidIcon from '@/assets/index/android-icon.svg';
 
 import Left from '@/assets/index/left.png';
@@ -19,23 +18,24 @@ const DOWNLOAD_LINKS = {
   androidApk: 'https://oss.toyslove.cn/printer-mate-1.0.9.apk',
 };
 
-const STORE_BADGES = [
+const STORE_BADGE_CONFIG = [
   {
     key: 'appStore',
     url: DOWNLOAD_LINKS.appStore,
-    badge: AppStoreBadge,
+    badgeKey: 'appStore' as const,
     labelKey: 'DownloadAppStore',
   },
   {
     key: 'googlePlay',
     url: DOWNLOAD_LINKS.googlePlay,
-    badge: GooglePlayBadge,
+    badgeKey: 'googlePlay' as const,
     labelKey: 'DownloadGooglePlay',
   },
 ] as const;
 
 const App = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const localizedBadges = getLocalizedStoreBadges(i18n.language);
   const [isWeChat, setIsWeChat] = useState(false);
 
   useEffect(() => {
@@ -58,14 +58,14 @@ const App = () => {
           <p className="description-text">{t('AppDescription')}</p>
         </div>
         <div className="download-buttons">
-          {STORE_BADGES.map(({ key, url, badge, labelKey }) => (
+          {STORE_BADGE_CONFIG.map(({ key, url, badgeKey, labelKey }) => (
             <button
               key={key}
               onClick={() => openDownloadLink(url)}
               className="download-badge"
             >
               <img
-                src={badge}
+                src={localizedBadges[badgeKey]}
                 alt={t(labelKey)}
                 className="download-badge-image"
               />
