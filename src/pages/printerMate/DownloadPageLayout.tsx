@@ -2,9 +2,7 @@ import { ReactNode, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import AppLogo from '@/assets/index/printerMateLogo.png';
-import Left from '@/assets/index/left.png';
 import OpenInBroswer from '@/assets/index/openInBroswer.png';
-import Right from '@/assets/index/right.png';
 
 type DownloadPageLayoutProps = {
   children: ReactNode;
@@ -22,11 +20,10 @@ const DownloadPageLayout = ({ children }: DownloadPageLayoutProps) => {
 
   return (
     <div className="container">
-      <img src={Left} className="bg-left" alt="" aria-hidden="true" />
-      <img src={Right} className="bg-right" alt="" aria-hidden="true" />
       <div className="content">
-        <img className="app-logo" src={AppLogo} alt="" />
-        <p className="baile-title">{t('AppTitle')}</p>
+        <img className="app-logo" src={AppLogo} alt={t('AppTitle')} />
+        {/* 主标题仅产品名，品牌色高亮，避免口号式前后缀 */}
+        <h1 className="app-title">{t('AppTitle')}</h1>
         <div className="app-description">
           <p className="description-text">{t('AppDescription')}</p>
         </div>

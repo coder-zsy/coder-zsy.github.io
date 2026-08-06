@@ -1,179 +1,193 @@
+/* 下载页：简洁商务风 —— 白底居中信息流，无两侧装饰图 */
 .container {
+  --brand: #2f8f86;
+  --brand-hover: #277a72;
+  --text-muted: #6b7280;
+  --text-footer: #9ca3af;
+  /* 与改版前一致的紧凑宽度；并排时各占一枚 */
+  --btn-width: 168px;
+
   width: 100vw;
   min-height: 100vh;
   min-height: 100dvh;
   height: 100dvh;
   position: relative;
   overflow: hidden;
-  .bg-left {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 21.66%;
-    height: 100%;
-  }
-  .bg-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    width: 21.66%;
-    height: 100%;
-  }
+  background: #ffffff;
+
   .content {
     width: 100%;
     height: 100%;
     display: grid;
+    /* logo / 标题 / 描述 / 下载按钮 */
     grid-template-rows: minmax(0, 1fr) auto auto auto auto minmax(0, 1fr);
     align-items: center;
     justify-items: center;
-    padding: max(12px, env(safe-area-inset-top, 0px)) 20px
-      calc(72px + env(safe-area-inset-bottom, 0px));
+    padding: max(16px, env(safe-area-inset-top, 0px)) 20px
+      calc(80px + env(safe-area-inset-bottom, 0px));
     box-sizing: border-box;
-    row-gap: 16px;
+    row-gap: 14px;
+
     .app-logo {
       grid-row: 2;
-      width: 160px;
-      height: 160px;
+      width: 72px;
+      height: 72px;
       flex-shrink: 0;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(47, 143, 134, 0.12);
     }
-    .baile-title {
+
+    .app-title {
       grid-row: 3;
-      color: #666666;
-      font-size: 24px;
+      margin: 0;
+      padding: 0;
+      border: none;
+      color: var(--brand);
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
       text-align: center;
-      margin: 0 0 10px;
-      padding: 8px 40px;
-      border-bottom: 1px solid #dddddd;
     }
+
     .app-description {
       grid-row: 4;
-      margin: 0 0 16px;
+      margin: 0;
       text-align: center;
-      max-width: 400px;
+      max-width: 360px;
+
       .description-text {
-        color: #888888;
+        color: var(--text-muted);
         font-size: 14px;
         line-height: 1.6;
         margin: 0;
       }
     }
+
     .download-buttons {
       grid-row: 5;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: nowrap;
       align-items: center;
+      justify-content: center;
+      width: auto;
+      max-width: calc(100vw - 40px);
       gap: 12px;
-      margin-top: 8px;
+      margin-top: 4px;
     }
-    .download-badge {
-      padding: 0;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      line-height: 0;
-      border-radius: 8px;
-      transition: opacity 0.2s ease;
-      &:hover {
-        opacity: 0.88;
-      }
-      .download-badge-image {
-        display: block;
-        width: 168px;
-        height: auto;
-      }
-    }
+
+    /* App Store / Android 统一黑底按钮：同宽同高，尺寸对齐改版前 168×50 */
     .download-direct {
       display: inline-flex;
       align-items: center;
+      justify-content: flex-start;
       gap: 6px;
-      width: 168px;
+      width: var(--btn-width);
+      flex: 0 0 var(--btn-width);
+      height: 50px;
       min-height: 50px;
+      box-sizing: border-box;
       padding: 8px 10px 8px 8px;
-      border: 1px solid #a6a6a6;
+      border: none;
       border-radius: 8px;
-      background: #000;
+      background: #111111;
       color: #fff;
       cursor: pointer;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease, background-color 0.2s ease;
+
       &:hover {
-        opacity: 0.88;
+        opacity: 0.9;
+        background: #000000;
       }
+
       .download-direct-icon {
         width: 34px;
         height: 34px;
         flex-shrink: 0;
       }
+
       .download-direct-text {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        justify-content: center;
         line-height: 1.15;
         min-width: 0;
         flex: 1;
+        text-align: left;
       }
+
       .download-direct-label {
         font-size: 10px;
-        letter-spacing: 0.4px;
-        text-transform: uppercase;
+        letter-spacing: 0.2px;
         opacity: 0.9;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        text-transform: none;
       }
+
       .download-direct-title {
         font-size: 16px;
         font-weight: 600;
         white-space: nowrap;
       }
     }
+
     .download-smart {
-      width: 168px;
+      width: var(--btn-width);
       min-height: 50px;
       padding: 0 24px;
       border: none;
       border-radius: 25px;
-      background-color: #32b2a7;
+      background-color: var(--brand);
       color: #fff;
       font-size: 14px;
+      font-weight: 600;
       cursor: pointer;
       transition: background-color 0.2s ease, opacity 0.2s ease;
+
       &:hover {
-        background-color: #2a9d93;
-        opacity: 0.95;
+        background-color: var(--brand-hover);
+        opacity: 0.96;
       }
     }
   }
+
   .bottom {
     position: absolute;
     bottom: max(12px, env(safe-area-inset-bottom, 0px));
     left: 0;
     right: 0;
     z-index: 2;
+
     .footer-info {
       text-align: center;
+
       .icp-record {
-        color: #1890ff;
+        color: var(--text-muted);
         font-size: 12px;
         margin: 5px 0;
-        text-decoration: underline;
-        transition: all 0.3s ease;
+        text-decoration: none;
+        transition: color 0.2s ease;
         display: inline-block;
+
         &:hover {
-          color: #40a9ff;
-          text-decoration: none;
-          transform: translateY(-1px);
-        }
-        &:active {
-          transform: translateY(0);
+          color: var(--brand);
+          text-decoration: underline;
         }
       }
+
       .copyright {
-        color: #999999;
+        color: var(--text-footer);
         font-size: 12px;
         margin: 5px 0;
       }
     }
   }
+
   .open-safari {
     position: absolute;
     z-index: 999;
@@ -182,6 +196,7 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
+
     .guide {
       width: 348px;
       height: 111px;
@@ -194,23 +209,20 @@
 
 @media screen and (max-width: 430px) {
   .container {
+    --btn-width: 156px;
+
     .content {
-      row-gap: 14px;
-      padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+      row-gap: 12px;
+      padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
 
       .app-logo {
-        width: 140px;
-        height: 140px;
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
       }
 
-      .baile-title {
-        font-size: 20px;
-        padding: 6px 24px;
-        margin-bottom: 8px;
-      }
-
-      .app-description {
-        margin-bottom: 12px;
+      .app-title {
+        font-size: 26px;
       }
 
       .app-description .description-text {
@@ -220,22 +232,35 @@
 
       .download-buttons {
         gap: 10px;
-        margin-top: 6px;
-      }
-
-      .download-badge .download-badge-image {
-        width: 156px;
+        margin-top: 2px;
       }
 
       .download-direct {
-        width: 156px;
+        height: 46px;
         min-height: 46px;
       }
 
       .download-smart {
-        width: 156px;
         min-height: 46px;
         font-size: 13px;
+      }
+    }
+  }
+}
+
+/* 极窄屏：并排按钮总宽约 322px，再缩一点避免贴边 */
+@media screen and (max-width: 360px) {
+  .container {
+    --btn-width: 148px;
+
+    .content {
+      .download-direct-title {
+        font-size: 14px;
+      }
+
+      .download-direct-icon {
+        width: 28px;
+        height: 28px;
       }
     }
   }

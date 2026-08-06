@@ -4,24 +4,21 @@
     "InstructionManual": "使用说明书",
     "Faq_Problem1": "如何连接打印机？",
     "Faq_Answer1": "1.将打印机开机(电源键长按1.5秒),确保打印机有电;\n2.打开手机蓝牙;\n3.打开printmate APP,在首页点击连接按钮;\n4.搜索到设备后点击对应设备名称连接设备,显示连接成功后，表示设备连接成功了;",
-
     "Faq_Problem2": "不能发现打印机？",
     "Faq_Answer2": "1.确认打印机已经开机,电源指示灯点亮;\n2.确保打印机未被其它手机连接,连接指示灯处于闪烁状态;\n3.确保手机蓝牙已开启;\n4.查看是否安装APP时禁用了相关权限；\n5.以上都正常,还是不能发现打印机,可尝试以下操作:\n重启打印机、手机蓝牙、APP后再试;\n",
-
     "Faq_Problem3": "为什么打印是空白的？",
     "Faq_Answer3": "打印纸方向安装错误,参考产品使用说明书,按正确的方向重新安装打印纸",
-
     "Faq_Problem4": "打印机连接成功,为什么无法打印？",
     "Faq_Answer4": "1.纸仓盖未关闭;\n2.检查打印纸是否用完,如用请更换新的打印纸\n3.检查打印纸是否卡纸，尝试重新安装打印纸",
     "DownloadInstall": "下载安装",
     "AppTitle": "PrinterMate",
-    "AppDescription": "这是一个迷你打印机APP，用于便捷的打印标签和图案。",
+    "AppDescription": "这是一个迷你打印机的手机端蓝牙控制APP，用于便捷的打印各种标签和图案，支持元素丰富，免费下载，即装即用",
     "DownloadAppStore": "App Store 下载",
     "DownloadGooglePlay": "Google Play 下载",
     "DownloadAndroidApk": "Android APK 下载",
     "DirectDownload": "直接下载",
     "IcpRecord": "豫ICP备2021019481号",
-    "Copyright": "© 2025 个人开发者. All rights reserved.",
+    "Copyright": "© 2025 PrinterMate. All rights reserved.",
     "OpenInBrowser": "在浏览器中打开"
   }
 }

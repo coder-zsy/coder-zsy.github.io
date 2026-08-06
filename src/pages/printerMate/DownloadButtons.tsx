@@ -1,14 +1,13 @@
 import { useTranslation } from 'react-i18next';
 
 import AndroidIcon from '@/assets/index/android-icon.svg';
-import { getLocalizedStoreBadges } from '@/assets/index/badges/storeBadges';
+import AppleIcon from '@/assets/index/apple-icon.svg';
 
 import { DOWNLOAD_LINKS, getStoreUrlByUserAgent } from './downloadLinks';
 import { isMainlandChina } from './regionDetect';
 
 const DownloadButtons = () => {
-  const { t, i18n } = useTranslation();
-  const localizedBadges = getLocalizedStoreBadges(i18n.language);
+  const { t } = useTranslation();
   const showMainlandButtons = isMainlandChina();
 
   const openDownloadLink = (url: string) => {
@@ -20,17 +19,25 @@ const DownloadButtons = () => {
   };
 
   if (showMainlandButtons) {
+    // 两个平台按钮共用同一套布局/尺寸，避免官方 badge 拉宽后高低不一
     return (
       <div className="download-buttons">
         <button
           onClick={() => openDownloadLink(DOWNLOAD_LINKS.appStore)}
-          className="download-badge"
+          className="download-direct"
         >
           <img
-            src={localizedBadges.appStore}
-            alt={t('DownloadAppStore')}
-            className="download-badge-image"
+            src={AppleIcon}
+            alt=""
+            className="download-direct-icon"
+            aria-hidden="true"
           />
+          <span className="download-direct-text">
+            <span className="download-direct-label">
+              {t('DownloadAppStore')}
+            </span>
+            <span className="download-direct-title">App Store</span>
+          </span>
         </button>
         <button
           onClick={() => openDownloadLink(DOWNLOAD_LINKS.androidApk)}
@@ -44,7 +51,7 @@ const DownloadButtons = () => {
           />
           <span className="download-direct-text">
             <span className="download-direct-label">{t('DirectDownload')}</span>
-            <span className="download-direct-title">Android APK</span>
+            <span className="download-direct-title">Android</span>
           </span>
         </button>
       </div>

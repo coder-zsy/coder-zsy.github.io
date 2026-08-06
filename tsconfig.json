@@ -1,4 +1,11 @@
 {
   "extends": "./src/.umi/tsconfig.json",
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "types"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "types",
+    "src/.umi/typings.d.ts",
+    "typings.d.ts"
+  ]
 }
